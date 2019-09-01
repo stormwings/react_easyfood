@@ -1,17 +1,9 @@
 {
-  "name": "satellogic",
-  "version": "0.1.0",
+  "name": "easyfood",
+  "version": "0.0.1",
   "private": true,
-  "dependencies": {
-    "i18next": "^17.0.6",
-    "i18next-browser-languagedetector": "^3.0.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-i18next": "^10.11.4",
-    "react-scripts": "3.0.1",
-    "styled-components": "^4.3.2",
-    "typescript": "3.5.3"
-  },
+  "author": "StormWings",
+  "license": "MIT",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -21,6 +13,9 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "jest": {
+    "globalSetup": "./config/jest.js"
   },
   "browserslist": {
     "production": [
@@ -34,30 +29,37 @@
       "last 1 safari version"
     ]
   },
+  "dependencies": {
+    "i18next": "17.0.6",
+    "i18next-browser-languagedetector": "3.0.1",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-i18next": "10.11.4",
+    "react-scripts": "3.0.1",
+    "styled-components": "4.3.2",
+    "typescript": "3.5.3"
+  },
   "devDependencies": {
-    "@storybook/addon-a11y": "^5.1.9",
-    "@storybook/addon-info": "^5.2.0-beta.17",
-    "@storybook/addon-knobs": "^5.1.9",
-    "@storybook/react": "^5.2.0-beta.18",
+    "@storybook/addon-a11y": "5.1.9",
+    "@storybook/addon-info": "5.2.0-beta.17",
+    "@storybook/addon-knobs": "5.1.9",
+    "@storybook/react": "5.2.0-beta.18",
     "@types/jest": "24.0.15",
     "@types/node": "12.6.8",
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.5",
-    "@types/react-test-renderer": "^16.8.3",
-    "@types/storybook__addon-a11y": "^5.0.0",
-    "@types/storybook__addon-info": "^4.1.2",
-    "@types/storybook__addon-knobs": "^5.0.3",
-    "@types/storybook__react": "^4.0.2",
-    "@types/styled-components": "^4.1.18",
-    "@typescript-eslint/eslint-plugin": "^1.13.0",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-plugin-react-hooks": "^1.6.1",
-    "react-docgen-typescript-loader": "^3.1.0",
-    "react-test-renderer": "^16.8.6",
-    "storybook-addon-i18n": "^5.1.9",
-    "storybook-readme": "^5.0.5"
-  },
-  "jest": {
-    "globalSetup": "./config/jest.js"
+    "@types/react-test-renderer": "16.8.3",
+    "@types/storybook__addon-a11y": "5.0.0",
+    "@types/storybook__addon-info": "4.1.2",
+    "@types/storybook__addon-knobs": "5.0.3",
+    "@types/storybook__react": "4.0.2",
+    "@types/styled-components": "4.1.18",
+    "@typescript-eslint/eslint-plugin": "1.13.0",
+    "eslint-config-prettier": "6.0.0",
+    "eslint-plugin-react-hooks": "1.6.1",
+    "react-docgen-typescript-loader": "3.1.0",
+    "react-test-renderer": "16.8.6",
+    "storybook-addon-i18n": "5.1.9",
+    "storybook-readme": "5.0.5"
   }
 }
