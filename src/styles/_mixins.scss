@@ -1,0 +1,12 @@
+// MIXINS (called with 'include')
+
+// basic mixin
+@mixin align_center_width {
+  margin: 0 auto;
+}
+
+@mixin flex_parent_center_height() {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
