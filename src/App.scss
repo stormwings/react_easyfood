@@ -1,0 +1,12 @@
+@import './styles/normalize';
+@import './styles/variables';
+@import './styles/fonts';
+@import './styles/mixins';
+@import './styles/layouts';
+@import './styles/functions';
+
+body {
+  font-family: $nunito;
+  font-weight: 400;
+  background-color: $colorBackground;
+}

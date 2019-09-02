@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import './i18n';
 import Router from './routes/Router';
 
