@@ -10,3 +10,8 @@
   flex-direction: column;
   justify-content: center;
 }
+
+@mixin margin_up_down($margin-top, $margin-bottom) {
+  margin-top: $margin-top;
+  margin-bottom: $margin-bottom;
+}
