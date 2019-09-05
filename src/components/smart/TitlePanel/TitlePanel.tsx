@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './TitleResult.scss';
+import './TitlePanel.scss';
 
-class TitleResult extends Component {
+class TitlePanel extends Component {
   render() {
     return (
       <section id="section_seven_eight">
@@ -14,4 +14,4 @@ class TitleResult extends Component {
   }
 }
 
-export default TitleResult;
+export default TitlePanel;

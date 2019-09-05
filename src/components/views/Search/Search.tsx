@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 
 import Header from '../../smart/Header/Header';
 import InputSearch from '../../smart/InputSearch/InputSearch';
-import TitleResult from '../../smart/TitleResult/TitleResult';
+import TitlePanel from '../../smart/TitlePanel/TitlePanel';
 import ArticleList from '../../smart/ArticleList/ArticleList';
 
 class Search extends Component {
@@ -11,7 +11,7 @@ class Search extends Component {
       <Fragment>
         <Header />
         <InputSearch />
-        <TitleResult />
+        <TitlePanel />
         <ArticleList />
       </Fragment>
     );

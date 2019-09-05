@@ -1,0 +1,22 @@
+@import './../../../styles/variables';
+@import './../../../styles/fonts';
+@import './../../../styles/mixins';
+
+#section_eightteen {
+  .button__confirm {
+    position: relative;
+    display: block;
+    margin: 30px auto;
+    padding: 0;
+    border-width: 0;
+    outline: none;
+    border-radius: 12px;
+    background-color: $colorPink;
+    color: #ecf0f1;
+
+    &__text {
+      display: block;
+      padding: 12px 24px;
+    }
+  }
+}
