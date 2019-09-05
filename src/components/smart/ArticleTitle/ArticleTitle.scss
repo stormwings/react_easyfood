@@ -1,0 +1,48 @@
+@import './../../../styles/variables';
+@import './../../../styles/fonts';
+@import './../../../styles/mixins';
+
+#section_nine {
+  width: 100%;
+
+  .article__header {
+    height: 60px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+
+    &__name {
+      width: 55%;
+
+      &__title {
+        font-size: 2em;
+        font-family: $times;
+        font-weight: 400;
+        margin: 0px;
+      }
+
+      &__subtitle {
+        color: $colorGrayDark;
+        margin: 0px;
+        font-size: 0.7em;
+      }
+    }
+
+    &__review {
+      width: 45%;
+      display: flex;
+      flex-direction: row;
+
+      &__stars {
+        height: 62px;
+        line-height: 62px;
+        text-align: center;
+        margin-right: 5px;
+      }
+
+      &__number {
+        margin-left: 5px;
+      }
+    }
+  }
+}

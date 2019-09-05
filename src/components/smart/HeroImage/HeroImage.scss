@@ -1,0 +1,16 @@
+@import './../../../styles/variables';
+@import './../../../styles/fonts';
+@import './../../../styles/mixins';
+
+#section_eight_nine {
+  width: 100%;
+
+  .article__image {
+    width: 100%;
+    margin-bottom: 20px;
+
+    img {
+      width: 100%;
+    }
+  }
+}

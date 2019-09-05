@@ -1,0 +1,53 @@
+@import './../../../styles/variables';
+@import './../../../styles/fonts';
+@import './../../../styles/mixins';
+
+#section_eleven {
+  .comments__header {
+    margin-bottom: 9px;
+
+    &__title {
+      margin: 0px;
+      font-weight: 500;
+    }
+  }
+
+  .comments__list {
+    &__article {
+      &__header {
+        display: flex;
+
+        &__image {
+          width: 15%;
+          border-radius: 40%;
+          height: 50px;
+        }
+
+        &__name {
+          width: 70%;
+          padding-left: 20px;
+          padding-top: 2%;
+
+          &__title {}
+
+          &__stars {
+            &__star {
+              width: 15px;
+            }
+          }
+        }
+
+        &__date {
+          width: 25%;
+          padding-top: 3%;
+        }
+      }
+
+      &__description {
+        p {
+          margin-top: 6px;
+        }
+      }
+    }
+  }
+}

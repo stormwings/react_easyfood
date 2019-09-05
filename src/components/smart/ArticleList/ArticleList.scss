@@ -3,23 +3,6 @@
 @import './../../../styles/mixins';
 
 #section_eight {
-  .search__result__header {
-    margin-bottom: 15px;
-
-    &__title {
-      font-size: 2em;
-      font-family: $times;
-      font-weight: 400;
-      margin: 0px;
-    }
-
-    &__subtitle {
-      color: $colorGrayDark;
-      margin: 0px;
-      font-size: 0.7em;
-    }
-  }
-
   .search__result__list {
     display: flex;
     flex-wrap: wrap;
