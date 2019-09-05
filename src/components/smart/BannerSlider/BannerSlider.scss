@@ -1,0 +1,44 @@
+@import './../../../styles/variables';
+@import './../../../styles/fonts';
+@import './../../../styles/mixins';
+
+#section_five {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+
+  .banners__header {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__title {
+      margin: 0px;
+    }
+
+    &__explore {
+      margin: 6px;
+      font-size: 11px;
+      text-decoration: none;
+      color: $colorLightBlue;
+    }
+  }
+
+  .banners__list {
+    height: 80%;
+
+    &__article {
+      padding: 5%;
+      width: 90%;
+      height: 80%;
+      margin: 0px;
+
+      img {
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
