@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SvgFavorite from '../../components/Svg/SVGFavorite';
+import SvgFavorite from '../../dumb/Svg/SVGFavorite';
 import './Search.scss';
 
 class Search extends Component {

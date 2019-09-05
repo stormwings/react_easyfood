@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
-import SvgFavorite from '../../components/Svg/SVGFavorite';
-import SvgHeart from '../../components/Svg/SVGHeart';
+import SvgFavorite from '../../dumb/Svg/SVGFavorite';
+import SvgHeart from '../../dumb/Svg/SVGHeart';
 import JpgPizzaExample from './pizza.jpeg';
 
 import './Article.scss';

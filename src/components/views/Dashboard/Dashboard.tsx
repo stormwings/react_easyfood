@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import './Dashboard.scss';
 
-import SvgFavorite from '../../components/Svg/SVGFavorite';
-import SvgSearch from '../../components/Svg/SVGSearch';
+import SvgFavorite from '../../dumb/Svg/SVGFavorite';
+import SvgSearch from '../../dumb/Svg/SVGSearch';
 import PngBannerExample from './banner_one.png';
 
 class Dashboard extends Component {

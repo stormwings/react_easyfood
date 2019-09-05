@@ -1,12 +1,12 @@
 import React, { SFC } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Search from '../views/Search/Search';
-import Article from '../views/Article/Article';
-import Checkout from '../views/Checkout/Checkout';
-import Dashboard from '../views/Dashboard/Dashboard';
+import Search from '../components/views/Search/Search';
+import Article from '../components/views/Article/Article';
+import Checkout from '../components/views/Checkout/Checkout';
+import Dashboard from '../components/views/Dashboard/Dashboard';
 
-import { NoMatch } from '../views/404';
+import { NoMatch } from '../components/views/404';
 
 const Router: SFC<{}> = () => {
   return (
