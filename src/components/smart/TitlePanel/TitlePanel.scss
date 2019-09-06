@@ -2,21 +2,36 @@
 @import './../../../styles/fonts';
 @import './../../../styles/mixins';
 
-#section_seven_eight {
-  .search__result__header {
-    margin-bottom: 15px;
+#title-panel {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
-    &__title {
-      font-size: 2em;
+  .title-panel__title {
+    font-size: 2em;
+    font-weight: 400;
+    margin: 0px;
+
+    &.times {
       font-family: $times;
-      font-weight: 400;
-      margin: 0px;
     }
 
-    &__subtitle {
-      color: $colorGrayDark;
-      margin: 0px;
-      font-size: 0.7em;
+    &.bold {
+      font-weight: 700;
     }
+  }
+
+  .title-panel__subtitle {
+    color: $colorGrayDark;
+    margin: 0px;
+    font-size: 0.7em;
+  }
+
+  .title-panel__link {
+    margin: 15px 6px;
+    font-size: 11px;
+    text-decoration: none;
+    color: $colorLightBlue;
   }
 }

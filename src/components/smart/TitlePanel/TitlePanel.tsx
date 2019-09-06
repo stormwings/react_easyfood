@@ -1,17 +1,26 @@
-import React, { Component } from 'react';
+import React, { FunctionComponent } from 'react';
 import './TitlePanel.scss';
 
-class TitlePanel extends Component {
-  render() {
-    return (
-      <section id="section_seven_eight">
-        <div className="search__result__header">
-          <h2 className="search__result__header__title">Pizza</h2>
-          <p className="search__result__header__subtitle">5,521 results</p>
-        </div>
-      </section>
-    );
-  }
+interface Props {
+  title: string;
+  subtitle?: string;
+  fontFamily?: string;
+  fontBold?: boolean;
+  redirection?: any;
 }
+
+const TitlePanel: FunctionComponent<Props> = ({ title, subtitle, redirection, fontFamily, fontBold }) => {
+  return (
+    <section id="title-panel">
+      <h2 className={`title-panel__title ${fontFamily ? fontFamily : ''} ${fontBold ? 'bold' : ''}`}>{title}</h2>
+      {subtitle && <p className="title-panel__subtitle">{subtitle}</p>}
+      {redirection && (
+        <a className="title-panel__link" href={redirection.link}>
+          {redirection.name} >>
+        </a>
+      )}
+    </section>
+  );
+};
 
 export default TitlePanel;

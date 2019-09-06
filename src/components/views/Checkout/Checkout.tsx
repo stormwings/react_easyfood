@@ -11,7 +11,7 @@ class Checkout extends Component {
   render() {
     return (
       <Fragment>
-        <TitlePanel />
+        <TitlePanel title={'Checkout'} />
         <DescriptionTable />
         <PaymentPanel />
         <ArticleResumeList />

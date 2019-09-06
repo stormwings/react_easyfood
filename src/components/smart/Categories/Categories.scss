@@ -2,60 +2,12 @@
 @import './../../../styles/fonts';
 @import './../../../styles/mixins';
 
-#section_tree {
+#categories {
   height: 155px;
-
-  .category__header {
-    height: 60px;
-    margin-bottom: 10px;
-    text-align: left;
-
-    &__title {
-      font-size: 2em;
-      font-family: $times;
-      font-weight: 400;
-      margin: 0px;
-    }
-
-    &__subtitle {
-      color: $colorGrayDark;
-      margin: 0px;
-      font-size: 0.7em;
-    }
-  }
 
   .category__list {
     height: 75px;
     display: flex;
     flex-direction: row;
-
-    &__article {
-      width: 22%;
-      height: 100%;
-      @include align_center_width();
-      display: flex;
-      flex-direction: column;
-      background-color: $colorWhite;
-      border-radius: 10px;
-      -webkit-box-shadow: 0px 0px 10px -8px rgba(0, 0, 0, 0.75);
-      -moz-box-shadow: 0px 0px 10px -8px rgba(0, 0, 0, 0.75);
-      box-shadow: 0px 0px 10px -8px rgba(0, 0, 0, 0.75);
-
-      &__image {
-        height: 50%;
-        width: 60%;
-        margin: 8px auto;
-        margin-bottom: 3px;
-      }
-
-      &__title {
-        padding-top: 3px;
-        font-size: 0.8em;
-        height: 20%;
-        color: $colorBlack;
-        text-align: center;
-        text-decoration: none;
-      }
-    }
   }
 }

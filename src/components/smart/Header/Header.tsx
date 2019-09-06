@@ -1,21 +1,26 @@
-import React, { Component } from 'react';
+import React, { FunctionComponent } from 'react';
 import './Header.scss';
 
-class Header extends Component {
-  render() {
-    return (
-      <section id="section_one" className="header">
-        <div className="header__greetings">
-          <p className="header__greetings__text">
-            Hello <b>Mariano</b>!
-          </p>
-        </div>
-        <div className="header__user">
-          <img className="header__user__image" src="https://avatars0.githubusercontent.com/u/34633323?s=460&v=4" />
-        </div>
-      </section>
-    );
-  }
+import TextHalfBlack from '../../dumb/TextHalfBlack/TextHalfBlack';
+import AvatarImage from '../../dumb/AvatarImage/AvatarImage';
+
+interface Props {
+  user: any;
 }
+
+const Header: FunctionComponent<Props> = ({ user }: any) => {
+  const { firstName, profilePicture } = user;
+
+  return (
+    <section id="header">
+      <div className="header__greetings">
+        <TextHalfBlack firstName={firstName} />
+      </div>
+      <div className="header__user">
+        <AvatarImage profilePicture={profilePicture} />
+      </div>
+    </section>
+  );
+};
 
 export default Header;
