@@ -12,7 +12,11 @@ class CommentPanel extends Component {
         <div className="comments__list">
           <div className="comments__list__article">
             <div className="comments__list__article__header">
-              <img className="comments__list__article__header__image" src="https://avatars0.githubusercontent.com/u/34633323?s=460&v=4" />
+              <img
+                className="comments__list__article__header__image"
+                src="https://avatars0.githubusercontent.com/u/34633323?s=460&v=4"
+                alt="profile_picture"
+              />
               <div className="comments__list__article__header__name">
                 <div className="comments__list__article__header__name__title">Mariano</div>
                 <div className="comments__list__article__header__name__stars">

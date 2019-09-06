@@ -6,7 +6,7 @@ interface Props {
 }
 
 const AvatarImage: FunctionComponent<Props> = ({ profilePicture }) => {
-  return <img id="avatar-image" src={profilePicture} />;
+  return <img id="avatar-image" src={profilePicture} alt="avatar" />;
 };
 
 export default AvatarImage;

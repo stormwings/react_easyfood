@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import './ArticleSquare.scss';
+import { Link } from 'react-router-dom';
 
 interface Props {
   article: any;
@@ -12,10 +13,10 @@ const ArticleSquare: FunctionComponent<Props> = props => {
 
   return (
     <div id="article-square">
-      <img className="article-square__image" src={image} />
-      <a className="article-square__title" href="#">
-        {name}
-      </a>
+      <img className="article-square__image" src={image} alt="article" />
+      <Link to="/link">
+        <div className="article-square__title">{name}</div>
+      </Link>
     </div>
   );
 };

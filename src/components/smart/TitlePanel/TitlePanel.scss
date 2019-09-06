@@ -5,27 +5,28 @@
 #title-panel {
   margin-bottom: 15px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
 
-  .title-panel__title {
-    font-size: 2em;
-    font-weight: 400;
-    margin: 0px;
+  .title-panel__box {
+    &__title {
+      font-size: 2em;
+      font-weight: 400;
+      margin: 0px;
 
-    &.times {
-      font-family: $times;
+      &.times {
+        font-family: $times;
+      }
+
+      &.bold {
+        font-weight: 700;
+      }
     }
 
-    &.bold {
-      font-weight: 700;
+    &__subtitle {
+      color: $colorGrayDark;
+      margin: 0px;
+      font-size: 0.7em;
     }
-  }
-
-  .title-panel__subtitle {
-    color: $colorGrayDark;
-    margin: 0px;
-    font-size: 0.7em;
   }
 
   .title-panel__link {

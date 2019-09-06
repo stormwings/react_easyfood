@@ -7,7 +7,7 @@ class HeroImage extends Component {
     return (
       <section id="section_eight_nine">
         <div className="article__image">
-          <img src={JpgPizzaExample} />
+          <img src={JpgPizzaExample} alt="pizza" />
         </div>
       </section>
     );

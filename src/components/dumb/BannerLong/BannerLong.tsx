@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import './BannerLong.scss';
+
 import PngBannerExample from './banner_one.png';
 
 interface Props {
@@ -9,7 +10,7 @@ interface Props {
 const BannerLong: FunctionComponent<Props> = props => {
   return (
     <article className="article-banner">
-      <img className="article-banner__image" src={PngBannerExample} />
+      <img className="article-banner__image" src={PngBannerExample} alt="banner" />
     </article>
   );
 };
