@@ -1,24 +1,22 @@
 import React, { FunctionComponent } from 'react';
 import './ArticleSquare.scss';
-import { Link } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router';
 
 interface Props {
   article: any;
+  history: any;
 }
 
-const ArticleSquare: FunctionComponent<Props> = props => {
-  const {
-    article: { name, image }
-  } = props;
+const ArticleSquare: FunctionComponent<Props & RouteComponentProps> = ({ article, history }) => {
+  const { name, image } = article;
+  const redirect = (url: string) => history.push(url);
 
   return (
-    <div id="article-square">
+    <div id="article-square" onClick={() => redirect(`/category/${name.toLowerCase()}`)}>
       <img className="article-square__image" src={image} alt="article" />
-      <Link to="/link">
-        <div className="article-square__title">{name}</div>
-      </Link>
+      <div className="article-square__title">{name}</div>
     </div>
   );
 };
 
-export default ArticleSquare;
+export default withRouter(ArticleSquare);
