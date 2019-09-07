@@ -32,18 +32,21 @@ class Dashboard extends Component {
     ];
     const trendings: any = [
       {
+        _id: 1,
         title: 'Meat menu',
         price: '8U$D',
         image: 'https://image.flaticon.com/icons/svg/1890/1890012.svg',
         delivery: '0.5U$D - 30m'
       },
       {
+        _id: 2,
         title: 'Burger XXL',
         price: '3U$D',
         image: 'https://image.flaticon.com/icons/svg/1365/1365540.svg',
         delivery: '0.5U$D - 15m'
       },
       {
+        _id: 3,
         title: 'Pizza M',
         price: '4U$D',
         image: 'https://image.flaticon.com/icons/svg/135/135646.svg',
@@ -55,17 +58,13 @@ class Dashboard extends Component {
         _id: 1
       }
     ];
-    const redirectToAllTrends = {
-      name: 'View All',
-      link: '/trendings'
-    };
 
     return (
       <Fragment>
         <Header user={user} />
         <InputSearch />
         <Categories categories={categories} />
-        <Trendings trendings={trendings} redirection={redirectToAllTrends} />
+        <Trendings trendings={trendings} />
         <BannerSlider banners={banners} />
       </Fragment>
     );

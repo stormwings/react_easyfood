@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import { RouteComponentProps, withRouter } from 'react-router';
 import './Trendings.scss';
 
 import TitlePanel from '../TitlePanel/TitlePanel';
@@ -6,18 +7,25 @@ import ArticleTallRectangle from '../../dumb/ArticleTallRectangle/ArticleTallRec
 
 interface Props {
   trendings: any;
-  redirection: any;
+  history: any;
 }
 
-const Trendings: FunctionComponent<Props> = ({ trendings, redirection }) => {
+const Trendings: FunctionComponent<Props & RouteComponentProps> = ({ trendings, history }) => {
+  const redirect = (_id: string) => history.push(`/article/${_id}`);
+  const redirection = {
+    name: 'View All',
+    link: '/trendings'
+  };
+
   return (
     <section id="trendings">
       <TitlePanel title={'Trending'} redirection={redirection} fontBold={true} />
       <div className="trendings__list">
-        {trendings && trendings.map((article: any, index: number) => <ArticleTallRectangle article={article} key={index} />)}
+        {trendings &&
+          trendings.map((article: any, index: number) => <ArticleTallRectangle action={redirect} article={article} key={index} />)}
       </div>
     </section>
   );
 };
 
-export default Trendings;
+export default withRouter(Trendings);

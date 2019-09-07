@@ -1,16 +1,19 @@
 import React, { FunctionComponent } from 'react';
-import SvgFavorite from '../Svg/SVGFavorite';
+import { withRouter, RouteComponentProps } from 'react-router';
 import './ArticleTallRectangle.scss';
+import SvgFavorite from '../Svg/SVGFavorite';
 
 interface Props {
   article: any;
+  history: any;
+  action: any;
 }
 
-const ArticleTallRectangle: FunctionComponent<Props> = ({ article }) => {
-  const { title, price, image, delivery } = article;
+const ArticleTallRectangle: FunctionComponent<Props & RouteComponentProps> = ({ article, history, action }) => {
+  const { _id, title, price, image, delivery } = article;
 
   return (
-    <div id="article-tall-rectangle">
+    <div onClick={() => action(_id)} id="article-tall-rectangle">
       <SvgFavorite className="article-tall-rectangle__favorite" />
       <img className="article-tall-rectangle__image" src={image} alt="article" />
       <div className="article-tall-rectangle__info">
@@ -22,4 +25,4 @@ const ArticleTallRectangle: FunctionComponent<Props> = ({ article }) => {
   );
 };
 
-export default ArticleTallRectangle;
+export default withRouter(ArticleTallRectangle);
