@@ -1,88 +1,22 @@
-import React, { Component } from 'react';
-import SvgFavorite from '../../dumb/Svg/SVGFavorite';
+import React, { FunctionComponent } from 'react';
+import { withRouter, RouteComponentProps } from 'react-router';
+
+import ArticleTallRectangle from '../../dumb/ArticleTallRectangle/ArticleTallRectangle';
 import './ArticleList.scss';
 
-class ArticleList extends Component {
-  render() {
-    return (
-      <section id="section_eight">
-        <div className="search__result__list">
-          <div className="search__result__list__article">
-            <SvgFavorite className="search__result__list__article__favorite" />
-            <img className="search__result__list__article__image" src="https://image.flaticon.com/icons/svg/135/135646.svg" alt="result" />
-            <div className="search__result__list__article__info">
-              <p className="search__result__list__article__info__delivery free">FREE - 30m</p>
-              <p className="search__result__list__article__info__title">Pizza M</p>
-              <p className="search__result__list__article__info__price">4U$D</p>
-            </div>
-          </div>
-          <div className="search__result__list__article">
-            <SvgFavorite className="search__result__list__article__favorite" />
-            <img className="search__result__list__article__image" src="https://image.flaticon.com/icons/svg/135/135646.svg" alt="result" />
-            <div className="search__result__list__article__info">
-              <p className="search__result__list__article__info__delivery free">FREE - 30m</p>
-              <p className="search__result__list__article__info__title">Pizza M</p>
-              <p className="search__result__list__article__info__price">4U$D</p>
-            </div>
-          </div>
-          <div className="search__result__list__article">
-            <SvgFavorite className="search__result__list__article__favorite" />
-            <img className="search__result__list__article__image" src="https://image.flaticon.com/icons/svg/135/135646.svg" alt="result" />
-            <div className="search__result__list__article__info">
-              <p className="search__result__list__article__info__delivery free">FREE - 30m</p>
-              <p className="search__result__list__article__info__title">Pizza M</p>
-              <p className="search__result__list__article__info__price">4U$D</p>
-            </div>
-          </div>
-          <div className="search__result__list__article">
-            <SvgFavorite className="search__result__list__article__favorite" />
-            <img className="search__result__list__article__image" src="https://image.flaticon.com/icons/svg/135/135646.svg" alt="result" />
-            <div className="search__result__list__article__info">
-              <p className="search__result__list__article__info__delivery free">FREE - 30m</p>
-              <p className="search__result__list__article__info__title">Pizza M</p>
-              <p className="search__result__list__article__info__price">4U$D</p>
-            </div>
-          </div>
-          <div className="search__result__list__article">
-            <SvgFavorite className="search__result__list__article__favorite" />
-            <img className="search__result__list__article__image" src="https://image.flaticon.com/icons/svg/135/135646.svg" alt="result" />
-            <div className="search__result__list__article__info">
-              <p className="search__result__list__article__info__delivery free">FREE - 30m</p>
-              <p className="search__result__list__article__info__title">Pizza M</p>
-              <p className="search__result__list__article__info__price">4U$D</p>
-            </div>
-          </div>
-          <div className="search__result__list__article">
-            <SvgFavorite className="search__result__list__article__favorite" />
-            <img className="search__result__list__article__image" src="https://image.flaticon.com/icons/svg/135/135646.svg" alt="result" />
-            <div className="search__result__list__article__info">
-              <p className="search__result__list__article__info__delivery free">FREE - 30m</p>
-              <p className="search__result__list__article__info__title">Pizza M</p>
-              <p className="search__result__list__article__info__price">4U$D</p>
-            </div>
-          </div>
-          <div className="search__result__list__article">
-            <SvgFavorite className="search__result__list__article__favorite" />
-            <img className="search__result__list__article__image" src="https://image.flaticon.com/icons/svg/135/135646.svg" alt="result" />
-            <div className="search__result__list__article__info">
-              <p className="search__result__list__article__info__delivery free">FREE - 30m</p>
-              <p className="search__result__list__article__info__title">Pizza M</p>
-              <p className="search__result__list__article__info__price">4U$D</p>
-            </div>
-          </div>
-          <div className="search__result__list__article">
-            <SvgFavorite className="search__result__list__article__favorite" />
-            <img className="search__result__list__article__image" src="https://image.flaticon.com/icons/svg/135/135646.svg" alt="result" />
-            <div className="search__result__list__article__info">
-              <p className="search__result__list__article__info__delivery free">FREE - 30m</p>
-              <p className="search__result__list__article__info__title">Pizza M</p>
-              <p className="search__result__list__article__info__price">4U$D</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
+interface Props {
+  articles: any;
+  history: any;
 }
 
-export default ArticleList;
+const ArticleList: FunctionComponent<Props & RouteComponentProps> = ({ articles, history }) => {
+  const redirect: Function = (_id: string) => history.push(`/article/${_id}`);
+
+  return (
+    <section id="article_list">
+      {articles && articles.map((article: any, index: number) => <ArticleTallRectangle key={index} article={article} action={redirect} />)}
+    </section>
+  );
+};
+
+export default withRouter(ArticleList);

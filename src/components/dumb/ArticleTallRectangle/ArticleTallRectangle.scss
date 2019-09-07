@@ -4,8 +4,8 @@
 
 #article-tall-rectangle {
   width: 28%;
-  height: 100%;
   @include align_center_width();
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   background-color: $colorWhite;
