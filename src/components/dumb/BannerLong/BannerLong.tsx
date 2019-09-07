@@ -9,7 +9,7 @@ interface Props {
 }
 
 const BannerLong: FunctionComponent<Props> = ({ banner, action }) => {
-  const { _id } = banner;
+  const { _id }: any = banner;
 
   return (
     <article className="article-banner" onClick={() => action(_id)}>

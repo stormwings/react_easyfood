@@ -11,8 +11,8 @@ interface Props {
 }
 
 const Trendings: FunctionComponent<Props & RouteComponentProps> = ({ trendings, history }) => {
-  const redirect = (_id: string) => history.push(`/article/${_id}`);
-  const redirection = {
+  const redirect: Function = (_id: string) => history.push(`/article/${_id}`);
+  const redirection: any = {
     name: 'View All',
     link: '/trendings'
   };

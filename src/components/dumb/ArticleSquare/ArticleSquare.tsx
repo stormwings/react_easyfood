@@ -8,7 +8,7 @@ interface Props {
 }
 
 const ArticleSquare: FunctionComponent<Props & RouteComponentProps> = ({ article, history }) => {
-  const { name, image } = article;
+  const { name, image }: any = article;
   const redirect = (url: string) => history.push(url);
 
   return (

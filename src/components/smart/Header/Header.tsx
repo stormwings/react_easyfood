@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Header: FunctionComponent<Props> = ({ user }: any) => {
-  const { firstName, profilePicture } = user;
+  const { firstName, profilePicture }: any = user;
 
   return (
     <section id="header">
