@@ -1,0 +1,34 @@
+@import './../../../styles/variables';
+@import './../../../styles/fonts';
+@import './../../../styles/mixins';
+
+#cell-item {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+
+  .cell-item__image {
+    height: 100%;
+    padding-left: 15px;
+  }
+
+  .cell-item__info {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px 0 15px;
+
+    &__subtitle {
+      color: $colorGrayDark;
+      font-size: 13px;
+    }
+
+    &__action {
+      span {
+        font-size: 13px;
+        color: $colorPink;
+        text-decoration: underline;
+      }
+    }
+  }
+}

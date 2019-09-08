@@ -1,4 +1,4 @@
-// FONTS
+// FONTS FAMILY
 
 // Nunito
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700&display=swap');
@@ -6,3 +6,10 @@ $nunito: 'Nunito',
 sans-serif;
 
 $times: 'times-new-roman';
+
+// FONT SIZES
+
+$font_size : (big: 35px,
+  normal: 24px,
+  small: 12px,
+);

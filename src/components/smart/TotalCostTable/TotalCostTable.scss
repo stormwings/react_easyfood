@@ -1,0 +1,19 @@
+@import './../../../styles/variables';
+@import './../../../styles/fonts';
+@import './../../../styles/mixins';
+
+#total-cost-table {
+  margin-top: 30px;
+
+  .confirm__payment {
+    width: 100%;
+
+    .hr-14 {
+      @include margin_up_down(14px, 14px)
+    }
+
+    .hr-28 {
+      @include margin_up_down(28px, 28px)
+    }
+  }
+}

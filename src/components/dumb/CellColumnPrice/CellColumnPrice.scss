@@ -1,0 +1,34 @@
+@import './../../../styles/variables';
+@import './../../../styles/fonts';
+@import './../../../styles/mixins';
+
+#cell-price {
+  width: 30%;
+  height: 100%;
+  padding-top: 5px;
+
+  .cell-price__counter {
+    display: flex;
+
+    div {
+      margin-left: 5px;
+      margin-right: 6px;
+      width: 35px;
+      border: none;
+      border-radius: 25px;
+      text-align: center;
+      background-color: $colorPink;
+      color: $colorWhite;
+    }
+
+    button {
+      padding: 0px;
+    }
+  }
+
+  .cell-price__total {
+    color: $colorBlue;
+    margin-top: 3px;
+    padding-left: 7px;
+  }
+}
