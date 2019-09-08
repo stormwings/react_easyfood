@@ -4,7 +4,7 @@ import './PaymentPanel.scss';
 class PaymentPanel extends Component {
   render() {
     return (
-      <section id="section_fiveteen">
+      <section id="payment-panel">
         <div className="payment">
           <div className="payment__title">Payment</div>
           <div className="payment__card">

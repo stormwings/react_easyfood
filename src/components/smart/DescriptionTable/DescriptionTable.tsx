@@ -16,7 +16,7 @@ class DescriptionTable extends Component {
     ];
 
     return (
-      <section id="section_fourteen">
+      <section id="description-table">
         {cells &&
           cells.map((cell: any, index: any) => (
             <CellRowTable cell={cell} key={index} separator={true} totalCells={cells.length} numberCell={index} />
