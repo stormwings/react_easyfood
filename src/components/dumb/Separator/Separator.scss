@@ -1,0 +1,38 @@
+@import './../../../styles/variables';
+@import './../../../styles/fonts';
+@import './../../../styles/mixins';
+
+#separator {
+
+  // THEMES
+
+  .theme-default {
+    border: none;
+    background-color: $colorGrayDark;
+    color: $colorGrayDark;
+    height: 1px;
+  }
+
+  .theme-empty {
+    border: none;
+  }
+
+  // MARGINS
+
+  .margin-default {
+    @include margin_up_down(15px, 15px);
+  }
+
+  // * generates margin class every 5 pixels
+  @for $i from 1 through 8 {
+    $margin: 5px * $i;
+
+    .margin-top-#{$margin} {
+      margin-top: $margin;
+    }
+
+    .margin-bottom-#{$margin} {
+      margin-bottom: $margin;
+    }
+  }
+}

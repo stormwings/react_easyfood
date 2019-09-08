@@ -1,6 +1,8 @@
 import React, { Fragment, FunctionComponent } from 'react';
 import './CellRowTable.scss';
 
+import Separator from '../Separator/Separator';
+
 interface Props {
   totalCells?: any;
   numberCell?: any;
@@ -13,8 +15,8 @@ interface CellRowTableProps {
 }
 
 // show all separators except the last one
-const Separator: FunctionComponent<Props> = ({ totalCells, numberCell }: any) =>
-  totalCells !== numberCell + 1 ? <hr className="hr-14" /> : <div />;
+const CellSeparator: FunctionComponent<Props> = ({ totalCells, numberCell }: any) =>
+  totalCells !== numberCell + 1 ? <Separator marginTop={15} marginBottom={15} /> : <div />;
 
 const CellRowTable: FunctionComponent<Props & CellRowTableProps> = ({ cell, totalCells, numberCell, separator, cellSizeY }: any) => {
   return (
@@ -27,7 +29,7 @@ const CellRowTable: FunctionComponent<Props & CellRowTableProps> = ({ cell, tota
           <p className="text">{cell.value}</p>
         </div>
       </div>
-      {separator && <Separator totalCells={totalCells} numberCell={numberCell} />}
+      {separator && <CellSeparator totalCells={totalCells} numberCell={numberCell} />}
     </Fragment>
   );
 };
