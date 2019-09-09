@@ -11,6 +11,7 @@ interface Props {
 }
 
 const TitlePanel: FunctionComponent<Props> = ({ title, subtitle, redirection, fontFamily, fontBold, fontSize }) => {
+  // pending improve classes as hr and button, improve sizes
   return (
     <section id="title-panel">
       <div className="title-panel__box">

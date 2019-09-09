@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
-import JpgPizzaExample from './pizza.jpeg';
 import './HeroImage.scss';
 
-class HeroImage extends Component {
+interface Props {
+  image: any;
+  title: any;
+}
+
+class HeroImage extends Component<Props> {
   render() {
+    const { image, title } = this.props;
+
     return (
-      <section id="section_eight_nine">
-        <div className="article__image">
-          <img src={JpgPizzaExample} alt="pizza" />
+      <section id="hero-image">
+        <div className="image__container">
+          <img className="image__container__image" src={image} alt={title} />
         </div>
       </section>
     );

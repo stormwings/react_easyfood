@@ -2,14 +2,14 @@
 @import './../../../styles/fonts';
 @import './../../../styles/mixins';
 
-#section_eight_nine {
+#hero-image {
   width: 100%;
 
-  .article__image {
+  .image__container {
     width: 100%;
     margin-bottom: 20px;
 
-    img {
+    &__image {
       width: 100%;
     }
   }

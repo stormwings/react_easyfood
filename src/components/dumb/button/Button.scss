@@ -1,0 +1,35 @@
+@import './../../../styles/variables';
+@import './../../../styles/fonts';
+@import './../../../styles/mixins';
+
+#button {
+  .button {
+    padding: 4px 12px;
+    margin: 0 auto;
+
+    &.button-success {
+      border-radius: 25px;
+      background-color: $colorPink;
+      color: $colorWhite;
+    }
+
+    &.button-empty {
+      color: $colorPink;
+    }
+
+    &.button-success-outline {
+      color: $colorPink;
+      border: 2px solid $colorPink;
+      border-radius: 25px;
+    }
+  }
+
+  .image-button {
+    width: 20px;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: $colorPink;
+    color: $colorWhite;
+    @include flex_parent_center_height();
+  }
+}

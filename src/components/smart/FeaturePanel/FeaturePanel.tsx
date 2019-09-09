@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import './FeaturePanel.scss';
 
-class FeaturePanel extends Component {
+import Button from '../../dumb/Button/Button';
+
+interface Props {
+  featureName: any;
+  featureFirstValue: any;
+  featureSecondValue: any;
+}
+
+class FeaturePanel extends Component<Props> {
   render() {
+    const { featureName, featureFirstValue, featureSecondValue } = this.props;
+
     return (
-      <section id="section_ten">
-        <div className="article__action">
-          <div className="article__action__feature">
-            <span className="title-mini">
-              <i>Offer!</i>
-            </span>
-          </div>
-          <div className="article__action__delivery">Free Delivery</div>
-          <div className="article__action__time">
-            <span className="button-mini">
-              <i>15m</i>
-            </span>
-          </div>
-        </div>
+      <section id="feature-panel">
+        <Button content={featureName} type={'success'} />
+        <Button content={featureFirstValue} type={'empty'} />
+        <Button content={featureSecondValue} type={'success-outline'} />
       </section>
     );
   }

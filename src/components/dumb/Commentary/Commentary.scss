@@ -1,0 +1,21 @@
+@import './../../../styles/variables';
+@import './../../../styles/fonts';
+@import './../../../styles/mixins';
+
+.commentary {
+  .header {
+    display: flex;
+    justify-content: space-between;
+
+    &__date {
+      padding: 0 10px;
+    }
+
+    .container {
+      width: 140px;
+      padding: 0 5px;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}

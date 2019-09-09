@@ -2,7 +2,7 @@ import React from 'react';
 
 import { text } from '@storybook/addon-knobs';
 
-import Button from '../button';
+import Button from '../Button';
 
 import ButtonDocs from './button.docs.md';
 import ButtonStory from './button.stories.md';

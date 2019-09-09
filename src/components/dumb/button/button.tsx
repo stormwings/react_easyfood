@@ -1,44 +1,50 @@
-import React, { FC } from 'react';
-import styled from 'styled-components';
+import React, { FunctionComponent } from 'react';
+// import { useTranslation, Trans } from 'react-i18next';
+import './Button.scss';
 
-import { useTranslation, Trans } from 'react-i18next';
-
-export interface ButtonProps {
+export interface Props {
   /**
    * Text of the button
-   *
    * @default ""
    **/
   content: string;
+  /**
+   * Image of the button
+   * @default ""
+   **/
+  urlImage?: string;
+  /**
+   * Text of the button
+   * @default "success"
+   **/
+  type?: string;
   /**
    * function to execute on click
    */
   onClick?: (e: unknown) => void;
 }
-export const FancyButton = styled.button`
-  border: 1px solid #eee;
-  border-radius: 3px;
-  background-color: white;
-  cursor: pointer;
-  font-size: 15px;
-  padding: 3px 10px;
-  margin: 10px;
-`;
 
-export const Button: FC<ButtonProps> = props => {
+const Button: FunctionComponent<Props> = ({ content, urlImage, type }) => {
   // you can use hook for the translation
   // https://react.i18next.com/latest/usetranslation-hook
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
+  // <div>{t('subTitle')}</div>
   return (
     <>
-      <div>
+      <div id="button">
         {/* Or you can use the Trans component 
             https://react.i18next.com/latest/trans-component */}
-        <Trans i18nKey="title" />
+        {/* <Trans i18nKey={content} /> */}
+        {urlImage ? (
+          <img className={'image-button'} src={urlImage} alt={content} />
+        ) : (
+          <span className={`button button-${type}`}>
+            <i>{content}</i>
+          </span>
+        )}
       </div>
-      <FancyButton onClick={props.onClick}>{props.content}</FancyButton>
-      <div>{t('subTitle')}</div>
     </>
   );
 };
+
 export default Button;

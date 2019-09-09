@@ -3,7 +3,6 @@
 @import './../../../styles/mixins';
 
 #title-panel {
-  margin-bottom: 15px;
   display: flex;
   justify-content: space-between;
 
@@ -23,6 +22,10 @@
 
       &.size-s {
         font-size: map-get($font_size, normal);
+      }
+
+      &.size-xs {
+        font-size: map-get($font_size, normal-small);
       }
     }
 
