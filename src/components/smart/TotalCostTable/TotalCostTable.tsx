@@ -26,9 +26,9 @@ class TotalCostTable extends Component {
     return (
       <section id="total-cost-table">
         <div className="confirm__payment">
-          {cells && cells.map((cell: any, index: any) => <CellRowTable cell={cell} key={index} separator={false} cellSizeY={'small'} />)}
+          {cells && cells.map((cell: any, index: any) => <CellRowTable cell={cell} key={index} separator={false} cellsizey={'small'} />)}
           <Separator marginTop={25} marginBottom={5} />
-          <CellRowTable cell={{ info: 'Total', value: '4,85' }} key={1} separator={false} cellSizeY={'small'} />
+          <CellRowTable cell={{ info: 'Total', value: '4,85' }} key={1} separator={false} cellsizey={'small'} />
         </div>
       </section>
     );

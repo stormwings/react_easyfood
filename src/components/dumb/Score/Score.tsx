@@ -11,7 +11,7 @@ const Score: FunctionComponent<Props> = ({ numberScore, elementSize }) => {
   const createScores = (numberScore: number, size: number = 12) => {
     let score: any = [];
     for (let i = 0; i < numberScore; i++) {
-      score.push(<SvgFavorite className="score-element" sizeX={size} sizeY={size} key={i} />);
+      score.push(<SvgFavorite className="score-element" sizex={size} sizey={size} key={i} />);
     }
     return score;
   };
