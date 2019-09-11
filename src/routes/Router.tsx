@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FunctionComponent } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Search from '../components/views/Search/Search';
@@ -9,7 +9,7 @@ import Category from '../components/views/Category/Category';
 
 import { NoMatch } from '../components/views/404';
 
-const Router: SFC<{}> = () => {
+const Router: FunctionComponent<{}> = () => {
   return (
     <BrowserRouter>
       <Switch>

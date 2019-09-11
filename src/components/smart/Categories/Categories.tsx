@@ -8,15 +8,8 @@ interface Props {
   categories: any;
 }
 
-const Categories: FunctionComponent<Props> = ({ categories }) => {
-  const [categoryList, setCategories] = useState([]);
+export const useShowScrollCategories = () => {
   const [showFixed, setShowFixed] = useState(false);
-
-  // handle render categories list
-  useEffect(() => {
-    // async service
-    setCategories(categories);
-  }, []); // to stop on the first execution
 
   // handle render categories list when scrolls down
   useEffect(() => {
@@ -33,12 +26,37 @@ const Categories: FunctionComponent<Props> = ({ categories }) => {
     return () => document.removeEventListener('scroll', onScroll);
   }, [showFixed]); // to stop when showFixed changes
 
+  return { showFixed };
+};
+
+export const useRenderTypeOfCategories = (categories: any) => {
+  const [categoryList, setCategories] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  // handle render categories list
+  useEffect(() => {
+    setLoading(true);
+    // (put async service)
+    setCategories(categories);
+    setLoading(false);
+  }, []); // to stop on the first execution
+
+  return { categoryList, loading };
+};
+
+const Categories: FunctionComponent<Props> = ({ categories }) => {
+  // custom hooks
+  const { showFixed } = useShowScrollCategories();
+  const { categoryList, loading } = useRenderTypeOfCategories(categories);
+
+  // render articles
   const renderList = (fixed = false) => (
     <div className={`category__list ${fixed ? 'fixed' : ''}`}>
       {categoryList && categoryList.map((category: any, index: number) => <ArticleSquare article={category} key={index} />)}
     </div>
   );
 
+  if (loading) return <p>Loading...</p>;
   return (
     <section id="categories">
       <TitlePanel title={'Food Time'} subtitle={'What do you want to eat today'} fontFamily={'times'} />
