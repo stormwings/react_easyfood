@@ -36,10 +36,10 @@ export const useRenderTypeOfCategories = (categories: any) => {
   // handle render categories list
   useEffect(() => {
     setLoading(true);
-    // (put async service)
+    // pending (put async service)
     setCategories(categories);
     setLoading(false);
-  }, []); // to stop on the first execution
+  }, [categories]); // the 'effect' will be executed again, when the 'categories' props changes // If these parameters do not change, then you will not render the effect again
 
   return { categoryList, loading };
 };

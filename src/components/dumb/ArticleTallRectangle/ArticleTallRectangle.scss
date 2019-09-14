@@ -3,6 +3,9 @@
 @import './../../../styles/mixins';
 
 #article-tall-rectangle {
+  // prevents that viewport observer render all elements
+  min-height: 150px;
+  // normal styles
   width: 28%;
   @include align_center_width();
   margin-bottom: 20px;
