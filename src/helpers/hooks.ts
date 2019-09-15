@@ -8,10 +8,10 @@ export function useCheckElementInViewport() {
   useEffect(() => {
     var observer = new IntersectionObserver(entries => {
       // when 'element DOM' change.. get their info
-      console.log(entries);
+      // console.log(entries);
       // from array's entries... get if the element its visible in the viewport
       const { isIntersecting } = entries[0];
-      console.log({ isIntersecting });
+      // console.log({ isIntersecting });
       if (isIntersecting) {
         // set the article to show and stop observer
         setShow(true);
@@ -41,7 +41,7 @@ export function useLocalStorage(key: any, initialValue: any) {
       window.localStorage.setItem(key, JSON.stringify(value));
       setValue(value);
     } catch (e) {
-      console.error(e);
+      // console.error(e);
     }
   };
 
