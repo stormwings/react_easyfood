@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
+import useForm from 'react-hook-form';
 import './SearchForm.scss';
 
-import SvgSearch from '../../dumb/Svg/SVGSearch';
+import Input from '../Input/Input';
 
-const SearchForm = () => {
+interface Props {
+  onSubmit: any;
+}
+
+const SearchForm: FunctionComponent<Props> = props => {
+  const { register, handleSubmit, errors } = useForm();
+  const { onSubmit } = props;
+
   return (
-    <form id="search-form">
-      <input className="search-form__input" type="search" placeholder="Chocolate Cake" />
-      <button className="search-form__button" type="submit">
-        <SvgSearch className="search-form__button__icon" />
-      </button>
+    <form id="search-form" onSubmit={handleSubmit(onSubmit)}>
+      <Input name={'query'} bindInput={register} placeholder={'Chocolate Cake'} />
     </form>
   );
 };

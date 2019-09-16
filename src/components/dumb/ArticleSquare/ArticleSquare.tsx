@@ -8,13 +8,13 @@ interface Props {
 }
 
 const ArticleSquare: FunctionComponent<Props & RouteComponentProps> = ({ article, history }) => {
-  const { name, image }: any = article;
+  const { strCategory, strCategoryThumb }: any = article;
   const redirect = (url: string) => history.push(url);
 
   return (
-    <div id="article-square" onClick={() => redirect(`/category/${name.toLowerCase()}`)}>
-      <img className="article-square__image" src={image} alt="article" />
-      <div className="article-square__title">{name}</div>
+    <div id="article-square" onClick={() => redirect(`/category/${strCategory.toLowerCase()}`)}>
+      <img className="article-square__image" src={strCategoryThumb} alt="article" />
+      <div className="article-square__title">{strCategory}</div>
     </div>
   );
 };

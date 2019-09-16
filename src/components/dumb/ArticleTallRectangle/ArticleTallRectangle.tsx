@@ -9,7 +9,11 @@ interface Props {
 }
 
 const ArticleTallRectangle: FunctionComponent<Props> = ({ article, action }) => {
-  const { _id, title, price, image, delivery }: any = article;
+  const { idMeal, strMeal, strMealThumb, price, delivery }: any = article;
+  // (pending) improve
+  const auxName = strMeal.length >= 9 ? `${strMeal.slice(0, 9)}...` : strMeal;
+  const auxPrice = `U$D${Math.floor(Math.random() * 10 + 1)}`;
+  const auxDelivery = `U$D${Math.floor(Math.random() * 3 + 1)}`;
 
   // hook to define if the component its visible
   const [show, $element] = useCheckElementInViewport();
@@ -18,17 +22,17 @@ const ArticleTallRectangle: FunctionComponent<Props> = ({ article, action }) => 
     <div
       // set this <div> in $element
       ref={$element}
-      onClick={() => action(_id)}
+      onClick={() => action(idMeal)}
       id="article-tall-rectangle"
     >
       {show && (
         <Fragment>
           <SvgFavorite className="article-tall-rectangle__favorite" />
-          <img className="article-tall-rectangle__image" src={image} alt="article" />
+          <img className="article-tall-rectangle__image" src={strMealThumb} alt="article" />
           <div className="article-tall-rectangle__info">
-            <p className="article-tall-rectangle__info__delivery">{delivery}</p>
-            <p className="article-tall-rectangle__info__title">{title}</p>
-            <p className="article-tall-rectangle__info__price">{price}</p>
+            <p className="article-tall-rectangle__info__delivery">30m - {delivery ? delivery : auxDelivery}</p>
+            <p className="article-tall-rectangle__info__title">{auxName}</p>
+            <p className="article-tall-rectangle__info__price">{price ? price : auxPrice}</p>
           </div>
         </Fragment>
       )}

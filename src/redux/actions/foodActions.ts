@@ -15,3 +15,6 @@ export const foodListFetch = () => (dispatch: any) => {
 export const categoriesListFetch = () => (dispatch: any) => {
   service.getCategories().then(result => dispatch(result.success ? getCategoryList(result.data) : errorFood(result)));
 };
+export const searchFoodsFetch = () => (dispatch: any) => {
+  service.searchFoods().then(result => dispatch(result.success ? getFoodList(result.data) : errorFood(result)));
+};

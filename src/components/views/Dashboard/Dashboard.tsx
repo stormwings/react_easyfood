@@ -1,74 +1,51 @@
 import React, { Component, Fragment } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
-import Header from '../../smart/Header/Header';
+import * as actions from './../../../redux/actions/foodActions';
+
+import BannerSlider from '../../smart/BannerSlider/BannerSlider';
 import InputSearch from '../../smart/InputSearch/InputSearch';
 import Categories from '../../smart/Categories/Categories';
-import BannerSlider from '../../smart/BannerSlider/BannerSlider';
 import Trendings from '../../smart/Trendings/Trendings';
+import Header from '../../smart/Header/Header';
 
-class Dashboard extends Component {
+interface Props {
+  foodState: any;
+  foodActions: any;
+}
+
+class Dashboard extends Component<Props> {
+  componentDidMount() {
+    this.props.foodActions.foodListFetch();
+    this.props.foodActions.getFoodBannerList();
+    this.props.foodActions.categoriesListFetch();
+  }
+
   render() {
+    const { foodList, categories, banners } = this.props.foodState;
+
     const user: any = {
       firstName: 'Mariano',
       profilePicture: 'https://avatars0.githubusercontent.com/u/34633323?s=460&v=4'
     };
-    const categories: any = [
-      {
-        name: 'Restaurant',
-        image: 'https://image.flaticon.com/icons/svg/1365/1365540.svg'
-      },
-      {
-        name: 'Desserts',
-        image: 'https://image.flaticon.com/icons/svg/817/817396.svg'
-      },
-      {
-        name: 'Kiosk',
-        image: 'https://image.flaticon.com/icons/svg/706/706164.svg'
-      },
-      {
-        name: 'Supermarket',
-        image: 'https://image.flaticon.com/icons/svg/859/859270.svg'
-      }
-    ];
-    const trendings: any = [
-      {
-        _id: 1,
-        title: 'Meat menu',
-        price: '8U$D',
-        image: 'https://image.flaticon.com/icons/svg/1890/1890012.svg',
-        delivery: '0.5U$D - 30m'
-      },
-      {
-        _id: 2,
-        title: 'Burger XXL',
-        price: '3U$D',
-        image: 'https://image.flaticon.com/icons/svg/1365/1365540.svg',
-        delivery: '0.5U$D - 15m'
-      },
-      {
-        _id: 3,
-        title: 'Pizza M',
-        price: '4U$D',
-        image: 'https://image.flaticon.com/icons/svg/135/135646.svg',
-        delivery: 'FREE - 30m'
-      }
-    ];
-    const banners: any = [
-      {
-        _id: 1
-      }
-    ];
 
     return (
       <Fragment>
         <Header user={user} />
         <InputSearch />
-        <Categories categories={categories} />
-        <Trendings trendings={trendings} />
+        <Categories categories={categories.slice(0, 4)} />
+        <Trendings trendings={foodList.slice(0, 3)} />
         <BannerSlider banners={banners} />
       </Fragment>
     );
   }
 }
 
-export default Dashboard;
+const mapStateToProps = (state: any) => ({ foodState: state.food });
+const mapDispatchToProps = (dispatch: any) => ({ foodActions: bindActionCreators(actions, dispatch) });
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Dashboard);
