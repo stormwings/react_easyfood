@@ -46,16 +46,18 @@ class ApiService {
    * @method that return a'template searched by id'.
    * @returns {ApiResult} that contains results in 'data'.
    */
-  public searchFoods = async (): Promise<any> => {
+  public searchFoods = async (values: any): Promise<any> => {
+    const { query } = values;
     let result: any = {
       data: [],
       success: false,
       message_result: ''
     };
+    console.log(values);
 
-    await Axios.get(apiUrls.URL_SEARCH_FOODS_BY_NAME('Arrabiata')).then(({ data }: AxiosResponse) => {
+    await Axios.get(apiUrls.URL_SEARCH_FOODS_BY_NAME(query)).then(({ data }: AxiosResponse) => {
       const { meals }: any = data;
-      result.data.foods = meals;
+      result.data.foods = meals || [];
       result.success = true;
     });
 

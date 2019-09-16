@@ -9,7 +9,7 @@ interface Props {
 }
 
 const SearchForm: FunctionComponent<Props> = props => {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit } = useForm();
   const { onSubmit } = props;
 
   return (

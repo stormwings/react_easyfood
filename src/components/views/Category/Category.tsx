@@ -280,7 +280,7 @@ class Category extends Component {
     return (
       <Fragment>
         <Header user={user} />
-        <InputSearch />
+        <InputSearch searchAction={() => console.log('wut')} />
         <Categories categories={categories} />
         <ArticleList articles={articles} />
       </Fragment>

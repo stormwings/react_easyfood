@@ -1,71 +1,61 @@
 import React, { Component, Fragment } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import * as actions from './../../../redux/actions/foodActions';
 
 import Header from '../../smart/Header/Header';
 import InputSearch from '../../smart/InputSearch/InputSearch';
 import TitlePanel from '../../smart/TitlePanel/TitlePanel';
 import ArticleList from '../../smart/ArticleList/ArticleList';
 
-class Search extends Component {
+interface Props {
+  foodActions: any;
+  foodState: any;
+  location: any;
+}
+
+class Search extends Component<Props> {
+  // apply hooks and search parameters url (pending)
+  componentDidMount() {
+    const {
+      location: { state },
+      foodActions
+    } = this.props;
+    const previousData = state && state.query;
+
+    if (previousData) {
+      foodActions.searchFoodsFetch({ query: state.query });
+    } else {
+      foodActions.searchFoodsFetch({ query: '' });
+    }
+  }
+
   render() {
+    const { foodList } = this.props.foodState;
+    const { searchFoodsFetch } = this.props.foodActions;
+    const { location } = this.props;
+
     const user: any = {
       firstName: 'Mariano',
       profilePicture: 'https://avatars0.githubusercontent.com/u/34633323?s=460&v=4'
     };
 
-    const articles: any = [
-      {
-        _id: 1,
-        title: 'Meat menu',
-        price: '8U$D',
-        image: 'https://image.flaticon.com/icons/svg/1890/1890012.svg',
-        delivery: '0.5U$D - 30m'
-      },
-      {
-        _id: 2,
-        title: 'Burger XXL',
-        price: '3U$D',
-        image: 'https://image.flaticon.com/icons/svg/1365/1365540.svg',
-        delivery: '0.5U$D - 15m'
-      },
-      {
-        _id: 3,
-        title: 'Pizza M',
-        price: '4U$D',
-        image: 'https://image.flaticon.com/icons/svg/135/135646.svg',
-        delivery: 'FREE - 30m'
-      },
-      {
-        _id: 4,
-        title: 'Meat menu',
-        price: '8U$D',
-        image: 'https://image.flaticon.com/icons/svg/1890/1890012.svg',
-        delivery: '0.5U$D - 30m'
-      },
-      {
-        _id: 5,
-        title: 'Burger XXL',
-        price: '3U$D',
-        image: 'https://image.flaticon.com/icons/svg/1365/1365540.svg',
-        delivery: '0.5U$D - 15m'
-      },
-      {
-        _id: 6,
-        title: 'Pizza M',
-        price: '4U$D',
-        image: 'https://image.flaticon.com/icons/svg/135/135646.svg',
-        delivery: 'FREE - 30m'
-      }
-    ];
-
     return (
       <Fragment>
         <Header user={user} />
-        <InputSearch />
-        <TitlePanel title={'Pizza'} />
-        <ArticleList articles={articles} />
+        <InputSearch searchAction={searchFoodsFetch} />
+        <TitlePanel title={location.state && location.state.query != '' ? location.state.query : 'Latests'} />
+        <ArticleList articles={foodList} />
       </Fragment>
     );
   }
 }
 
-export default Search;
+const mapStateToProps = (state: any) => ({ foodState: state.food });
+const mapDispatchToProps = (dispatch: any) => ({ foodActions: bindActionCreators(actions, dispatch) });
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Search);

@@ -24,6 +24,7 @@ class Dashboard extends Component<Props> {
 
   render() {
     const { foodList, categories, banners } = this.props.foodState;
+    const { searchFoodsFetch } = this.props.foodActions;
 
     const user: any = {
       firstName: 'Mariano',
@@ -33,7 +34,7 @@ class Dashboard extends Component<Props> {
     return (
       <Fragment>
         <Header user={user} />
-        <InputSearch />
+        <InputSearch searchAction={searchFoodsFetch} />
         <Categories categories={categories.slice(0, 4)} />
         <Trendings trendings={foodList.slice(0, 3)} />
         <BannerSlider banners={banners} />
