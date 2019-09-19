@@ -12,6 +12,9 @@ const service: ApiService = new ApiService();
 export const getFoodFetch = (values: object) => (dispatch: any) => {
   service.getFood(values).then((result: any) => dispatch(result.success ? getFood(result.data) : errorFood(result)));
 };
+export const getFoodByCategoryFetch = (values: object) => (dispatch: any) => {
+  service.getFoodsByCategory(values).then((result: any) => dispatch(result.success ? getFoodList(result.data) : errorFood(result)));
+};
 export const foodListFetch = () => (dispatch: any) => {
   service.getFoods().then(result => dispatch(result.success ? getFoodList(result.data) : errorFood(result)));
 };

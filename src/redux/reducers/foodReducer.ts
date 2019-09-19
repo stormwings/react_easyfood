@@ -6,14 +6,7 @@ const INITIAL_STATE = {
   foodList: [] as any,
   categories: [] as any,
   banners: [] as any,
-  loading: false,
-  activeCategory: 0,
-  searchQuery: '',
-  selectedFood: undefined as any,
-  request_status: {
-    message_result: null,
-    result: false
-  } as any
+  selectedFood: undefined as any
 };
 
 export default function(state = INITIAL_STATE, action: any) {
@@ -48,9 +41,6 @@ export default function(state = INITIAL_STATE, action: any) {
       };
     }
     case types.FOOD_ERROR: {
-      return { ...state };
-    }
-    case types.FOOD_LOADING: {
       return { ...state };
     }
     default:

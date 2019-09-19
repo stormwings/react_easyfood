@@ -22,12 +22,15 @@ const BASE_URL = 'https://www.themealdb.com/api/json/v1/1/';
  * categories | GET | get food's categories
  * search foods by category | GET | get foods by category
  */
-export const URL_FOODS = `${BASE_URL}latest.php`;
-export const URL_FOOD = (id: any) => `${BASE_URL}lookup.php?i=${id}`;
-export const URL_CATEGORIES = `${BASE_URL}categories.php`;
-export const URL_SEARCH_FOODS_BY_NAME = (name: any) => `${BASE_URL}search.php?s=${name}`;
+export const URL_FOODS: string = `${BASE_URL}latest.php`;
+export const URL_FOOD = (id: any): string => `${BASE_URL}lookup.php?i=${id}`;
+export const URL_FOOD_RANDOM: string = `${BASE_URL}random.php`;
+export const URL_SEARCH_FOODS_BY_NAME = (name: any): string => `${BASE_URL}search.php?s=${name}`;
+export const URL_SEARCH_FOODS_BY_CATEGORY = (category: any): string => `${BASE_URL}filter.php?c=${category}`;
 
-// Lookup a random meal
-// # random.php
-// Filter by Category
-// # filter.php?c=Seafood
+/**
+ * Categories
+ *
+ * categories | GET | get food's categories
+ */
+export const URL_CATEGORIES: string = `${BASE_URL}categories.php`;

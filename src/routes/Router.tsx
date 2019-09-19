@@ -18,7 +18,7 @@ const Router: FunctionComponent<{}> = () => {
         <Route exact path="/search" component={Search} />
         <Route exact path="/trendings" component={Search} />
         <Route exact path="/checkout" component={Checkout} />
-        <Route exact path="/category/:category" component={Category} />
+        <Route exact path="/category/:categoryName" component={Category} />
 
         <Route component={NoMatch} />
       </Switch>
