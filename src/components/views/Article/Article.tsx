@@ -1,56 +1,65 @@
 import React, { Component, Fragment } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 
-import HeroImage from '../../smart/HeroImage/HeroImage';
+import * as actions from './../../../redux/actions/foodActions';
+
+import ArticlePricePanel from '../../smart/ArticlePricePanel/ArticlePricePanel';
 import ArticleTitle from '../../smart/ArticleTitle/ArticleTitle';
 import FeaturePanel from '../../smart/FeaturePanel/FeaturePanel';
 import CommentPanel from '../../smart/CommentPanel/CommentPanel';
-import ArticlePricePanel from '../../smart/ArticlePricePanel/ArticlePricePanel';
+import HeroImage from '../../smart/HeroImage/HeroImage';
 
-import JpgPizzaExample from './pizza.jpeg';
+interface Props {
+  foodActions: any;
+  foodState: any;
+  match: any;
+}
 
-class Article extends Component {
+class Article extends Component<Props> {
+  componentDidMount() {
+    const { articleId } = this.props.match.params;
+    this.props.foodActions.getFoodFetch({ articleId });
+  }
+
   render() {
+    const { selectedFood } = this.props.foodState;
+    if (!selectedFood) return <div>Loading</div>;
+    if (!selectedFood.idMeal) return <Redirect to={'/404'} />;
+
+    // food data
+    const { strMeal, strMealThumb, strIngredient1, strIngredient2, strIngredient3, userComments } = selectedFood;
+    const shortInfo = `${strIngredient1}, ${strIngredient2}, ${strIngredient3}...`;
+    const auxName = strMeal.length >= 13 ? `${strMeal.slice(0, 11)}...` : strMeal;
+
+    // helpers
     const article: any = {
-      _id: 1,
-      title: 'Meat menu',
-      shortInfo: 'Meat, salad and an egg',
       price: '8U$D',
-      image: JpgPizzaExample,
       deliveryPrice: '0.5U$D',
       deliveryTime: '30m',
       score: 4
     };
-    const comments: any = [
-      {
-        profilePicture: 'https://avatars0.githubusercontent.com/u/34633323?s=460&v=4',
-        userFirstName: 'Mariano',
-        score: 5,
-        date: 'July.12.2019',
-        commentary:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente qui impedit voluptatem minus ipsam, deserunt adipisci mollitia architecto unde quam veritatis.'
-      },
-      {
-        profilePicture: 'https://avatars0.githubusercontent.com/u/34633323?s=460&v=4',
-        userFirstName: 'Florencia',
-        score: 5,
-        date: 'October.18.2019',
-        commentary:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente qui impedit voluptatem minus ipsam, deserunt adipisci mollitia architecto unde quam veritatis.'
-      }
-    ];
-
-    const { title, price, image, deliveryPrice, deliveryTime, score, shortInfo } = article;
+    const { price, deliveryPrice, deliveryTime, score } = article;
 
     return (
-      <Fragment>
-        <HeroImage image={image} title={title} />
-        <ArticleTitle title={title} score={score} info={shortInfo} fontFamily={'times'} />
-        <FeaturePanel featureName={'Delivery!'} featureFirstValue={deliveryPrice} featureSecondValue={deliveryTime} />
-        <CommentPanel comments={comments} />
-        <ArticlePricePanel price={price} />
-      </Fragment>
+      selectedFood && (
+        <Fragment>
+          <HeroImage image={strMealThumb} title={strMeal} />
+          <ArticleTitle title={auxName} score={score} info={shortInfo} fontFamily={'times'} />
+          <FeaturePanel featureName={'Delivery!'} featureFirstValue={deliveryPrice} featureSecondValue={deliveryTime} />
+          <CommentPanel comments={userComments} />
+          <ArticlePricePanel price={price} />
+        </Fragment>
+      )
     );
   }
 }
 
-export default Article;
+const mapStateToProps = (state: any) => ({ foodState: state.food });
+const mapDispatchToProps = (dispatch: any) => ({ foodActions: bindActionCreators(actions, dispatch) });
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Article);

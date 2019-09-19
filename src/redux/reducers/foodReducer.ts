@@ -1,4 +1,6 @@
 import * as types from '../types';
+// helpers
+import { userComments } from '../../helpers/variables';
 
 const INITIAL_STATE = {
   foodList: [] as any,
@@ -7,6 +9,7 @@ const INITIAL_STATE = {
   loading: false,
   activeCategory: 0,
   searchQuery: '',
+  selectedFood: undefined as any,
   request_status: {
     message_result: null,
     result: false
@@ -15,6 +18,16 @@ const INITIAL_STATE = {
 
 export default function(state = INITIAL_STATE, action: any) {
   switch (action.type) {
+    case types.FOOD_GET: {
+      const { food } = action.payload;
+      return {
+        ...state,
+        selectedFood: {
+          ...food,
+          userComments
+        }
+      };
+    }
     case types.FOOD_LIST_FETCH: {
       const { foods } = action.payload;
       return { ...state, foodList: [...foods] };

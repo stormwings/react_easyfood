@@ -15,7 +15,29 @@ class ApiService {
 
     await Axios.get(apiUrls.URL_FOODS).then(({ data }: AxiosResponse) => {
       const { meals }: any = data;
-      result.data.foods = meals;
+      result.data.foods = meals || undefined;
+      result.success = true;
+    });
+
+    return result;
+  };
+
+  /**
+   * @method that return a'template searched by id'.
+   * @returns {ApiResult} that contains results in 'data'.
+   */
+  public getFood = async (values: any): Promise<any> => {
+    const { articleId } = values;
+    let result: any = {
+      data: [],
+      success: false,
+      message_result: ''
+    };
+
+    await Axios.get(apiUrls.URL_FOOD(articleId)).then(({ data }: AxiosResponse) => {
+      const { meals }: any = data;
+      const meal = meals ? meals[0] : undefined;
+      result.data.food = meal;
       result.success = true;
     });
 
@@ -53,7 +75,6 @@ class ApiService {
       success: false,
       message_result: ''
     };
-    console.log(values);
 
     await Axios.get(apiUrls.URL_SEARCH_FOODS_BY_NAME(query)).then(({ data }: AxiosResponse) => {
       const { meals }: any = data;

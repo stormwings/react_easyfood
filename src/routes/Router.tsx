@@ -14,7 +14,7 @@ const Router: FunctionComponent<{}> = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Dashboard} />
-        <Route exact path="/article/:id" component={Article} />
+        <Route exact path="/article/:articleId" component={Article} />
         <Route exact path="/search" component={Search} />
         <Route exact path="/trendings" component={Search} />
         <Route exact path="/checkout" component={Checkout} />
