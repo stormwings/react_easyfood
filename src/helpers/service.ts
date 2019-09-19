@@ -28,7 +28,6 @@ class ApiService {
     const { categoryName } = values;
 
     await Axios.get(apiUrls.URL_SEARCH_FOODS_BY_CATEGORY(categoryName)).then(({ data }: AxiosResponse) => {
-      console.log(data);
       const { meals }: any = data;
       result.data.foods = meals || undefined;
       result.success = true;

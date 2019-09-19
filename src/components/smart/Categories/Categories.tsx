@@ -6,6 +6,7 @@ import ArticleSquare from '../../dumb/ArticleSquare/ArticleSquare';
 
 interface Props {
   categories: any;
+  changeCategoryAction?: any;
 }
 
 export const useShowScrollCategories = () => {
@@ -44,7 +45,9 @@ export const useRenderTypeOfCategories = (categories: any) => {
   return { categoryList, loading };
 };
 
-const Categories: FunctionComponent<Props> = ({ categories }) => {
+const Categories: FunctionComponent<Props> = props => {
+  const { categories, changeCategoryAction } = props;
+
   // custom hooks
   const { showFixed } = useShowScrollCategories();
   const { categoryList, loading } = useRenderTypeOfCategories(categories);
@@ -52,7 +55,10 @@ const Categories: FunctionComponent<Props> = ({ categories }) => {
   // render articles
   const renderList = (fixed = false) => (
     <div className={`category__list ${fixed ? 'fixed' : ''}`}>
-      {categoryList && categoryList.map((category: any, index: number) => <ArticleSquare article={category} key={index} />)}
+      {categoryList &&
+        categoryList.map((category: any, index: number) => (
+          <ArticleSquare article={category} customAction={changeCategoryAction ? changeCategoryAction : null} key={index} />
+        ))}
     </div>
   );
 
