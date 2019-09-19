@@ -42,7 +42,7 @@ class Search extends Component<Props> {
       <Fragment>
         <Header user={user} />
         <InputSearch searchAction={searchFoodsFetch} />
-        <TitlePanel title={location.state && location.state.query != '' ? location.state.query : 'Latests'} />
+        <TitlePanel title={location.state && location.state.query !== '' ? location.state.query : 'Latests'} />
         <ArticleList articles={foodList} />
       </Fragment>
     );
