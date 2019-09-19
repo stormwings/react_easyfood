@@ -22,19 +22,16 @@ class Search extends Component<Props> {
       location: { state },
       foodActions
     } = this.props;
-    const previousData = state && state.query;
+    const checkPreviousData = state && state.query;
+    const query = checkPreviousData ? state.query : '';
 
-    if (previousData) {
-      foodActions.searchFoodsFetch({ query: state.query });
-    } else {
-      foodActions.searchFoodsFetch({ query: '' });
-    }
+    foodActions.searchFoodsFetch({ query });
   }
 
   render() {
-    const { foodList } = this.props.foodState;
-    const { searchFoodsFetch } = this.props.foodActions;
-    const { location } = this.props;
+    const { foodState, foodActions, location } = this.props;
+    const { searchFoodsFetch } = foodActions;
+    const { foodList } = foodState;
 
     const user: any = {
       firstName: 'Mariano',
