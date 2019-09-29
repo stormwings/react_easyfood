@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, BrowserRouterProps } from 'react-router-dom';
 
 import Search from '../components/views/Search/Search';
 import Article from '../components/views/Article/Article';
@@ -9,7 +9,7 @@ import Category from '../components/views/Category/Category';
 
 import { NoMatch } from '../components/views/404';
 
-const Router: FunctionComponent<{}> = () => {
+const Router: FunctionComponent<BrowserRouterProps> = () => {
   return (
     <BrowserRouter>
       <Switch>
@@ -19,6 +19,14 @@ const Router: FunctionComponent<{}> = () => {
         <Route exact path="/trendings" component={Search} />
         <Route exact path="/checkout" component={Checkout} />
         <Route exact path="/category/:categoryName" component={Category} />
+
+        {/* <Switch>
+          <Route path="/order/new" component={Dashboard} />
+          <Route path="/order/info" component={Dashboard} />
+          <Route path="/user/:id/profile" render={props => <UserProfile userId={props.match.params.id} />} /> 
+          <Route path="/user/:id/details" render={props => <UserDetails userId={props.match.params.id} />} />
+          <Route path="/user/:id/orders" render={props => <UserDetails userId={props.match.params.id} />} /> 
+        </Switch> */}
 
         <Route component={NoMatch} />
       </Switch>

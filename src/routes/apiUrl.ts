@@ -3,7 +3,7 @@
  *
  * base | {string} | set the base url depending on the environment
  */
-const BASE_URL = 'https://www.themealdb.com/api/json/v1/1/';
+const BASE_URL: string = 'https://www.themealdb.com/api/json/v1/1/';
 
 /**
  * Authentication
@@ -23,10 +23,10 @@ const BASE_URL = 'https://www.themealdb.com/api/json/v1/1/';
  * search foods by category | GET | get foods by category
  */
 export const URL_FOODS: string = `${BASE_URL}latest.php`;
-export const URL_FOOD = (id: any): string => `${BASE_URL}lookup.php?i=${id}`;
+export const URL_FOOD = (id: number): string => `${BASE_URL}lookup.php?i=${id}`;
 export const URL_FOOD_RANDOM: string = `${BASE_URL}random.php`;
-export const URL_SEARCH_FOODS_BY_NAME = (name: any): string => `${BASE_URL}search.php?s=${name}`;
-export const URL_SEARCH_FOODS_BY_CATEGORY = (category: any): string => `${BASE_URL}filter.php?c=${category}`;
+export const URL_SEARCH_FOODS_BY_NAME = (name: string): string => `${BASE_URL}search.php?s=${name}`;
+export const URL_SEARCH_FOODS_BY_CATEGORY = (category: string): string => `${BASE_URL}filter.php?c=${category}`;
 
 /**
  * Categories
