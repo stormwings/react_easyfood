@@ -2,7 +2,6 @@ import * as types from '../types';
 
 const INITIAL_STATE = {
   loading: false,
-  submiting: false,
   user: {},
   request_status: {
     message_result: null,
@@ -13,13 +12,29 @@ const INITIAL_STATE = {
 export default function(state = INITIAL_STATE, action: any) {
   switch (action.type) {
     case types.AUTH_ERROR: {
-      return { ...state };
+      const { message_result } = action.payload;
+      return { ...state, error: message_result, loading: false };
     }
     case types.AUTH_LOADING: {
-      return { ...state };
+      return { ...state, loading: true };
     }
     case types.AUTH_SIGNIN: {
-      return { ...state };
+      const {
+        data: { user },
+        message_result,
+        success
+      } = action.payload;
+
+      return {
+        ...state,
+        user,
+        loading: false,
+        request_status: {
+          ...state.request_status,
+          message_result,
+          result: success
+        }
+      };
     }
     case types.AUTH_LOGOUT: {
       return { ...INITIAL_STATE };
