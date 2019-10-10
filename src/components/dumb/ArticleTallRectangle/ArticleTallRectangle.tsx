@@ -1,6 +1,6 @@
 import React, { FunctionComponent, Fragment } from 'react';
 import './ArticleTallRectangle.scss';
-import SvgFavorite from '../Svg/SVGFavorite';
+import SvgFavorite from '../../Svg/SVGFavorite';
 import { useCheckElementInViewport } from '../../../helpers/hooks';
 
 interface Props {

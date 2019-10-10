@@ -1,7 +1,7 @@
 import React, { Fragment, FunctionComponent } from 'react';
 import './Input.scss';
 
-import SvgSearch from '../../dumb/Svg/SVGSearch';
+import SvgSearch from '../../Svg/SVGSearch';
 
 interface Props {
   placeholder?: string;

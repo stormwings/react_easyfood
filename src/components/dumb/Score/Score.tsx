@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import './Score.scss';
-import SvgFavorite from '../Svg/SVGFavorite';
+import SvgFavorite from '../../Svg/SVGFavorite';
 
 interface Props {
   numberScore: number;
