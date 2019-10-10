@@ -22,15 +22,14 @@ export default function(state = INITIAL_STATE, action: any) {
       };
     }
     case types.FOOD_LIST_FETCH: {
-      const { foods } = action.payload;
-      return { ...state, foodList: [...foods] };
+      const { meals } = action.payload;
+      return { ...state, foodList: [...meals] };
     }
     case types.FOOD_CATEGORY_LIST_FETCH: {
       const { categories } = action.payload;
       return { ...state, categories: [...categories] };
     }
     case types.FOOD_BANNER_LIST_FETCH: {
-      // const { banners } = action.payload;
       return {
         ...state,
         banners: [
@@ -41,6 +40,9 @@ export default function(state = INITIAL_STATE, action: any) {
       };
     }
     case types.FOOD_ERROR: {
+      return { ...state };
+    }
+    case types.FOOD_LOADING: {
       return { ...state };
     }
     default:

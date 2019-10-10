@@ -22,7 +22,7 @@ const BASE_URL: string = 'https://www.themealdb.com/api/json/v1/1/';
  * categories | GET | get food's categories
  * search foods by category | GET | get foods by category
  */
-export const URL_FOODS: string = `${BASE_URL}latest.php`;
+export const URL_FOODS: string = `${BASE_URL}filter.php?a=Canadian`;
 export const URL_FOOD = (id: number): string => `${BASE_URL}lookup.php?i=${id}`;
 export const URL_FOOD_RANDOM: string = `${BASE_URL}random.php`;
 export const URL_SEARCH_FOODS_BY_NAME = (name: string): string => `${BASE_URL}search.php?s=${name}`;
