@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import './FeaturePanel.scss';
+import React, { Component } from "react";
+import "./FeaturePanel.scss";
 
-import Button from '../../dumb/Button/Button';
+import Button from "../../dumb/Button/Button";
 
 interface Props {
   featureName: any;
@@ -15,9 +15,9 @@ class FeaturePanel extends Component<Props> {
 
     return (
       <section id="feature-panel">
-        <Button content={featureName} type={'success'} />
-        <Button content={featureFirstValue} type={'empty'} />
-        <Button content={featureSecondValue} type={'success-outline'} />
+        <Button content={featureName} type={"success"} />
+        <Button content={featureFirstValue} type={"empty"} />
+        <Button content={featureSecondValue} type={"success-outline"} />
       </section>
     );
   }
