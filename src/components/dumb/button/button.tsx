@@ -9,6 +9,11 @@ export interface Props {
    **/
   content: string;
   /**
+   * Text of the button
+   * @default ""
+   **/
+  className?: string;
+  /**
    * Image of the button
    * @default ""
    **/
@@ -25,7 +30,7 @@ export interface Props {
 }
 
 const Button: FunctionComponent<Props> = props => {
-  const { content, urlImage, type, onClick } = props;
+  const { content, urlImage, type, className, onClick } = props;
   // you can use hook for the translation
   // https://react.i18next.com/latest/usetranslation-hook
   // const { t } = useTranslation();
@@ -33,7 +38,11 @@ const Button: FunctionComponent<Props> = props => {
   // function options
   const actionFunction = () => (onClick ? onClick() : onClickDefault());
   return (
-    <div id="button" onClick={() => actionFunction()}>
+    <div
+      id="button"
+      className={className ? className : ""}
+      onClick={() => actionFunction()}
+    >
       {/* Or you can use the Trans component 
             https://react.i18next.com/latest/trans-component */}
       {/* <Trans i18nKey={content} /> */}

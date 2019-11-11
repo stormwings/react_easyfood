@@ -1,25 +1,26 @@
-import React, { Component } from 'react';
-import CellRowTable from '../../dumb/CellRowTable/CellRowTable';
-import './DescriptionTable.scss';
+import React, { Component } from "react";
+import CellRowTable from "../../dumb/CellRowTable/CellRowTable";
+import "./DescriptionTable.scss";
 
-class DescriptionTable extends Component {
+interface Props {
+  cells: any;
+}
+
+class DescriptionTable extends Component<Props> {
   render() {
-    const cells = [
-      {
-        info: 'Address',
-        value: 'Aguero 777'
-      },
-      {
-        info: 'Delivery Time',
-        value: 'Aprox 22 minutes'
-      }
-    ];
+    const { cells } = this.props;
 
     return (
       <section id="description-table">
         {cells &&
           cells.map((cell: any, index: any) => (
-            <CellRowTable cell={cell} key={index} separator={true} totalCells={cells.length} numberCell={index} />
+            <CellRowTable
+              cell={cell}
+              key={index}
+              separator={true}
+              totalCells={cells.length}
+              numberCell={index}
+            />
           ))}
       </section>
     );

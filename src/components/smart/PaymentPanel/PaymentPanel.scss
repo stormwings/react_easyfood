@@ -1,6 +1,6 @@
-@import './../../../styles/variables';
-@import './../../../styles/fonts';
-@import './../../../styles/mixins';
+@import "./../../../styles/variables";
+@import "./../../../styles/fonts";
+@import "./../../../styles/mixins";
 
 #payment-panel {
   background-color: $colorWhite;
@@ -48,6 +48,7 @@
       @include flex_parent_center_height();
 
       &__change {
+        text-align: center;
         width: 85%;
         border: none;
         outline: none;

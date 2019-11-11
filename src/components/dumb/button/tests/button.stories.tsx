@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import { text } from '@storybook/addon-knobs';
+import { text } from "@storybook/addon-knobs";
 
-import Button from '../Button';
+import Button from "../Button";
 
-import ButtonDocs from './button.docs.md';
-import ButtonStory from './button.stories.md';
+import ButtonDocs from "./button.docs.md";
+import ButtonStory from "./button.stories.md";
 
 export default {
-  title: 'Components/Button',
+  title: "Components/Button",
 
   parameters: {
     // info: 'Global story text',
@@ -21,10 +21,12 @@ export default {
   }
 };
 
-export const WithText = () => <Button content={text('Content', 'I am fancy!!!!!!')} />;
+export const WithText = () => (
+  <Button content={text("Content", "I am fancy!!!!!!")} />
+);
 
 WithText.story = {
-  name: 'with text',
+  name: "with text",
   parameters: {
     readme: {
       content: `Overriden 1`,
@@ -33,8 +35,10 @@ WithText.story = {
   }
 };
 
-export const WithSomeEmoji = () => <Button content={text('Content', '😀 😎 👍 💯')} />;
+export const WithSomeEmoji = () => (
+  <Button content={text("Content", "😀 😎 👍 💯")} />
+);
 
 WithSomeEmoji.story = {
-  name: 'with some emoji'
+  name: "with some emoji"
 };

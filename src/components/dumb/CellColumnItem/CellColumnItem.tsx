@@ -1,11 +1,13 @@
-import React, { FunctionComponent } from 'react';
-import './CellColumnItem.scss';
+import React, { FunctionComponent } from "react";
+import "./CellColumnItem.scss";
 
 interface Props {
   article: any;
+  onDelete: any;
 }
 
-const CellColumnItem: FunctionComponent<Props> = ({ article }) => {
+const CellColumnItem: FunctionComponent<Props> = props => {
+  const { article, onDelete } = props;
   const { title, image } = article;
 
   return (
@@ -14,7 +16,7 @@ const CellColumnItem: FunctionComponent<Props> = ({ article }) => {
       <div className="cell-item__info">
         <div className="cell-item__info__title">{title}</div>
         <div className="cell-item__info__subtitle">Pizza Hut</div>
-        <div className="cell-item__info__action">
+        <div className="cell-item__info__action" onClick={() => onDelete()}>
           - <span>Delete</span>
         </div>
       </div>

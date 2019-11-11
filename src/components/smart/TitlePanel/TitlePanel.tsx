@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from 'react';
-import './TitlePanel.scss';
+import React, { FunctionComponent } from "react";
+import "./TitlePanel.scss";
 
 interface Props {
   title: string;
@@ -10,12 +10,26 @@ interface Props {
   redirection?: any;
 }
 
-const TitlePanel: FunctionComponent<Props> = ({ title, subtitle, redirection, fontFamily, fontBold, fontSize }) => {
+const TitlePanel: FunctionComponent<Props> = props => {
+  const {
+    title,
+    subtitle,
+    redirection,
+    fontFamily,
+    fontBold,
+    fontSize
+  } = props;
+  const customFontFamily = fontFamily ? fontFamily : "";
+  const customFontWeight = fontBold ? "bold" : "";
+  const customFontSize = fontSize ? fontSize : "";
+
   // pending improve classes as hr and button, improve sizes
   return (
     <section id="title-panel">
       <div className="title-panel__box">
-        <h2 className={`title-panel__box__title ${fontFamily ? fontFamily : ''} ${fontBold ? 'bold' : ''} ${fontSize ? fontSize : ''}`}>
+        <h2
+          className={`title-panel__box__title ${customFontFamily} ${customFontWeight} ${customFontSize}`}
+        >
           {title}
         </h2>
         {subtitle && <p className="title-panel__box__subtitle">{subtitle}</p>}
