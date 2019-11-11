@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent } from "react";
 // import { useTranslation, Trans } from 'react-i18next';
-import './Button.scss';
+import "./Button.scss";
 
 export interface Props {
   /**
@@ -21,30 +21,35 @@ export interface Props {
   /**
    * function to execute on click
    */
-  onClick?: (e: unknown) => void;
+  onClick?: any;
 }
 
-const Button: FunctionComponent<Props> = ({ content, urlImage, type }) => {
+const Button: FunctionComponent<Props> = props => {
+  const { content, urlImage, type, onClick } = props;
   // you can use hook for the translation
   // https://react.i18next.com/latest/usetranslation-hook
   // const { t } = useTranslation();
   // <div>{t('subTitle')}</div>
+  // function options
+  const actionFunction = () => (onClick ? onClick() : onClickDefault());
   return (
-    <>
-      <div id="button">
-        {/* Or you can use the Trans component 
+    <div id="button" onClick={() => actionFunction()}>
+      {/* Or you can use the Trans component 
             https://react.i18next.com/latest/trans-component */}
-        {/* <Trans i18nKey={content} /> */}
-        {urlImage ? (
-          <img className={'image-button'} src={urlImage} alt={content} />
-        ) : (
-          <span className={`button button-${type}`}>
-            <i>{content}</i>
-          </span>
-        )}
-      </div>
-    </>
+      {/* <Trans i18nKey={content} /> */}
+      {urlImage ? (
+        <img className={"image-button"} src={urlImage} alt={content} />
+      ) : (
+        <span className={`button button-${type}`}>
+          <i>{content}</i>
+        </span>
+      )}
+    </div>
   );
+};
+
+const onClickDefault = () => {
+  console.log("default button function!");
 };
 
 export default Button;

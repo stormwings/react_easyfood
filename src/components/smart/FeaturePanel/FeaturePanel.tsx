@@ -13,8 +13,10 @@ class FeaturePanel extends Component<Props> {
   render() {
     const { featureName, featureFirstValue, featureSecondValue } = this.props;
 
+    const onDeliveryDetails = () => console.log("show delivery details!");
+
     return (
-      <section id="feature-panel">
+      <section onClick={onDeliveryDetails} id="feature-panel">
         <Button content={featureName} type={"success"} />
         <Button content={featureFirstValue} type={"empty"} />
         <Button content={featureSecondValue} type={"success-outline"} />

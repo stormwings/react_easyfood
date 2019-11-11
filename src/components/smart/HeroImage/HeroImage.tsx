@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './HeroImage.scss';
+import React, { Component } from "react";
+import "./HeroImage.scss";
 
 interface Props {
   image: any;

@@ -1,15 +1,15 @@
-import React, { Component, Fragment } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { Redirect } from 'react-router';
+import React, { Component, Fragment } from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { Redirect } from "react-router";
 
-import * as actions from './../../../redux/actions/foodActions';
+import * as actions from "./../../../redux/actions/foodActions";
 
-import ArticlePricePanel from '../../smart/ArticlePricePanel/ArticlePricePanel';
-import ArticleTitle from '../../smart/ArticleTitle/ArticleTitle';
-import FeaturePanel from '../../smart/FeaturePanel/FeaturePanel';
-import CommentPanel from '../../smart/CommentPanel/CommentPanel';
-import HeroImage from '../../smart/HeroImage/HeroImage';
+import ArticlePricePanel from "../../smart/ArticlePricePanel/ArticlePricePanel";
+import ArticleTitle from "../../smart/ArticleTitle/ArticleTitle";
+import FeaturePanel from "../../smart/FeaturePanel/FeaturePanel";
+import CommentPanel from "../../smart/CommentPanel/CommentPanel";
+import HeroImage from "../../smart/HeroImage/HeroImage";
 
 interface Props {
   foodActions: any;
@@ -26,18 +26,26 @@ class Article extends Component<Props> {
   render() {
     const { selectedFood } = this.props.foodState;
     if (!selectedFood) return <div>Loading</div>;
-    if (!selectedFood.idMeal) return <Redirect to={'/404'} />;
+    if (!selectedFood.idMeal) return <Redirect to={"/404"} />;
 
     // food data
-    const { strMeal, strMealThumb, strIngredient1, strIngredient2, strIngredient3, userComments } = selectedFood;
+    const {
+      strMeal,
+      strMealThumb,
+      strIngredient1,
+      strIngredient2,
+      strIngredient3,
+      userComments
+    } = selectedFood;
     const shortInfo = `${strIngredient1}, ${strIngredient2}, ${strIngredient3}...`;
-    const auxName = strMeal.length >= 13 ? `${strMeal.slice(0, 11)}...` : strMeal;
+    const cuttedName =
+      strMeal.length >= 13 ? `${strMeal.slice(0, 11)}...` : strMeal;
 
-    // helpers
+    // helpers (this info comes from backend)
     const article: any = {
-      price: '8U$D',
-      deliveryPrice: '0.5U$D',
-      deliveryTime: '30m',
+      price: "8U$D",
+      deliveryPrice: "0.5U$D",
+      deliveryTime: "30m",
       score: 4
     };
     const { price, deliveryPrice, deliveryTime, score } = article;
@@ -46,8 +54,17 @@ class Article extends Component<Props> {
       selectedFood && (
         <Fragment>
           <HeroImage image={strMealThumb} title={strMeal} />
-          <ArticleTitle title={auxName} score={score} info={shortInfo} fontFamily={'times'} />
-          <FeaturePanel featureName={'Delivery!'} featureFirstValue={deliveryPrice} featureSecondValue={deliveryTime} />
+          <ArticleTitle
+            title={cuttedName}
+            score={score}
+            info={shortInfo}
+            fontFamily={"times"}
+          />
+          <FeaturePanel
+            featureName={"Delivery"}
+            featureFirstValue={deliveryPrice}
+            featureSecondValue={deliveryTime}
+          />
           <CommentPanel comments={userComments} />
           <ArticlePricePanel price={price} />
         </Fragment>
@@ -57,7 +74,9 @@ class Article extends Component<Props> {
 }
 
 const mapStateToProps = (state: any) => ({ foodState: state.food });
-const mapDispatchToProps = (dispatch: any) => ({ foodActions: bindActionCreators(actions, dispatch) });
+const mapDispatchToProps = (dispatch: any) => ({
+  foodActions: bindActionCreators(actions, dispatch)
+});
 
 export default connect(
   mapStateToProps,
