@@ -5,16 +5,15 @@
 #header {
   height: 30px;
   display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
 
   .header__greetings {
-    width: 30%;
-    height: 100%;
-    max-width: 30%;
   }
 
   .header__user {
-    width: 70%;
-    height: 100%;
+    margin-top: 4px;
     display: flex;
     justify-content: flex-end;
   }
