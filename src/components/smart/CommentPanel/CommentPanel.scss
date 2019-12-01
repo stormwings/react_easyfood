@@ -1,7 +1,11 @@
-@import './../../../styles/variables';
-@import './../../../styles/fonts';
-@import './../../../styles/mixins';
+@import "./../../../styles/variables";
+@import "./../../../styles/fonts";
+@import "./../../../styles/mixins";
 
 #comment-panel {
-  .comment-panel__list {}
+  width: 95%;
+  margin: 0 auto;
+  .comment-panel__list {
+    margin-top: 10px;
+  }
 }

@@ -1,8 +1,8 @@
-import React, { FunctionComponent, useState, useEffect } from 'react';
-import './Categories.scss';
+import React, { FunctionComponent, useState, useEffect } from "react";
+import "./Categories.scss";
 
-import TitlePanel from '../TitlePanel/TitlePanel';
-import ArticleSquare from '../../dumb/ArticleSquare/ArticleSquare';
+import TitlePanel from "../TitlePanel/TitlePanel";
+import ArticleSquare from "../../dumb/ArticleSquare/ArticleSquare";
 
 interface Props {
   categories: any;
@@ -21,10 +21,10 @@ export const useShowScrollCategories = () => {
     };
 
     // add function to 'scroll' event
-    document.addEventListener('scroll', onScroll);
+    document.addEventListener("scroll", onScroll);
     // return a function that remove the eventListener
     // this prevents 're-render overwritting' of same events
-    return () => document.removeEventListener('scroll', onScroll);
+    return () => document.removeEventListener("scroll", onScroll);
   }, [showFixed]); // to stop when showFixed changes
 
   return { showFixed };
@@ -54,10 +54,14 @@ const Categories: FunctionComponent<Props> = props => {
 
   // render articles
   const renderList = (fixed = false) => (
-    <div className={`category__list ${fixed ? 'fixed' : ''}`}>
+    <div className={`category__list ${fixed ? "fixed" : ""}`}>
       {categoryList &&
         categoryList.map((category: any, index: number) => (
-          <ArticleSquare article={category} customAction={changeCategoryAction ? changeCategoryAction : null} key={index} />
+          <ArticleSquare
+            article={category}
+            customAction={changeCategoryAction ? changeCategoryAction : null}
+            key={index}
+          />
         ))}
     </div>
   );
@@ -65,7 +69,12 @@ const Categories: FunctionComponent<Props> = props => {
   if (loading) return <p>Loading...</p>;
   return (
     <section id="categories">
-      <TitlePanel title={'Food Time'} subtitle={'What do you want to eat today'} fontFamily={'times'} />
+      <TitlePanel
+        title={"Food Time"}
+        subtitle={"What do you want to eat today"}
+        fontFamily={"times"}
+        style={{ marginTop: "20px", marginBottom: "15px", marginLeft: "15px" }}
+      />
       {renderList()}
       {showFixed && renderList(true)}
     </section>

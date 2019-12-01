@@ -1,8 +1,10 @@
-@import './../../../styles/variables';
-@import './../../../styles/fonts';
-@import './../../../styles/mixins';
+@import "./../../../styles/variables";
+@import "./../../../styles/fonts";
+@import "./../../../styles/mixins";
 
 .commentary {
+  margin-bottom: 23px;
+
   .header {
     display: flex;
     justify-content: space-between;
@@ -16,6 +18,13 @@
       padding: 0 5px;
       display: flex;
       justify-content: space-around;
+    }
+  }
+  .description {
+    .description__text {
+      margin-top: 5px;
+      padding-left: 15px;
+      padding-right: 15px;
     }
   }
 }

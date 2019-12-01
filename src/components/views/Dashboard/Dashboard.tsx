@@ -1,14 +1,14 @@
-import React, { Component, Fragment } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import React, { Component, Fragment } from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 
-import * as actions from './../../../redux/actions/foodActions';
+import * as actions from "./../../../redux/actions/foodActions";
 
-import BannerSlider from '../../smart/BannerSlider/BannerSlider';
-import InputSearch from '../../smart/InputSearch/InputSearch';
-import Categories from '../../smart/Categories/Categories';
-import Trendings from '../../smart/Trendings/Trendings';
-import Header from '../../smart/Header/Header';
+import BannerSlider from "../../smart/BannerSlider/BannerSlider";
+import InputSearch from "../../smart/InputSearch/InputSearch";
+import Categories from "../../smart/Categories/Categories";
+import Trendings from "../../smart/Trendings/Trendings";
+import Header from "../../smart/Header/Header";
 
 interface Props {
   foodState: any;
@@ -27,8 +27,9 @@ class Dashboard extends Component<Props> {
     const { searchFoodsFetch } = this.props.foodActions;
 
     const user: any = {
-      firstName: 'Mariano',
-      profilePicture: 'https://avatars0.githubusercontent.com/u/34633323?s=460&v=4'
+      firstName: "Mariano",
+      profilePicture:
+        "https://avatars0.githubusercontent.com/u/34633323?s=460&v=4"
     };
 
     return (
@@ -44,9 +45,8 @@ class Dashboard extends Component<Props> {
 }
 
 const mapStateToProps = (state: any) => ({ foodState: state.food });
-const mapDispatchToProps = (dispatch: any) => ({ foodActions: bindActionCreators(actions, dispatch) });
+const mapDispatchToProps = (dispatch: any) => ({
+  foodActions: bindActionCreators(actions, dispatch)
+});
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

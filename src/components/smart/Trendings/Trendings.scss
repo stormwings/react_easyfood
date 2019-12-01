@@ -1,12 +1,13 @@
-@import './../../../styles/variables';
-@import './../../../styles/fonts';
-@import './../../../styles/mixins';
+@import "./../../../styles/variables";
+@import "./../../../styles/fonts";
+@import "./../../../styles/mixins";
 
 #trendings {
   display: flex;
   flex-direction: column;
 
   .trendings__list {
+    padding: 0 5px;
     display: flex;
     flex-direction: row;
   }

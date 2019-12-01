@@ -1,10 +1,10 @@
-@import './../../../styles/variables';
-@import './../../../styles/fonts';
-@import './../../../styles/mixins';
+@import "./../../../styles/variables";
+@import "./../../../styles/fonts";
+@import "./../../../styles/mixins";
 
 #article-square {
   width: 22%;
-  height: 100%;
+  max-width: 160px;
   display: flex;
   flex-direction: column;
   background-color: $colorWhite;
@@ -15,6 +15,7 @@
   box-shadow: 0px 0px 10px -8px rgba(0, 0, 0, 0.75);
 
   .article-square__image {
+    max-width: 150px;
     width: 100%;
     margin: 8px auto;
     margin-bottom: 3px;
@@ -27,5 +28,11 @@
     color: $colorBlack;
     text-align: center;
     text-decoration: none;
+
+    @media screen and (min-width: 600px) {
+      font-size: 16px;
+      padding-top: 10px;
+      padding-bottom: 15px;
+    }
   }
 }

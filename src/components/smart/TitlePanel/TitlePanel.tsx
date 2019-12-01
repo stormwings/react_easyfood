@@ -8,6 +8,7 @@ interface Props {
   fontBold?: boolean;
   fontSize?: string;
   redirection?: any;
+  style?: any;
 }
 
 const TitlePanel: FunctionComponent<Props> = props => {
@@ -17,7 +18,8 @@ const TitlePanel: FunctionComponent<Props> = props => {
     redirection,
     fontFamily,
     fontBold,
-    fontSize
+    fontSize,
+    style
   } = props;
   const customFontFamily = fontFamily ? fontFamily : "";
   const customFontWeight = fontBold ? "bold" : "";
@@ -25,7 +27,7 @@ const TitlePanel: FunctionComponent<Props> = props => {
 
   // pending improve classes as hr and button, improve sizes
   return (
-    <section id="title-panel">
+    <section id="title-panel" style={style ? style : {}}>
       <div className="title-panel__box">
         <h2
           className={`title-panel__box__title ${customFontFamily} ${customFontWeight} ${customFontSize}`}

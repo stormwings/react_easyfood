@@ -1,11 +1,12 @@
-@import './../../../styles/variables';
-@import './../../../styles/fonts';
-@import './../../../styles/mixins';
+@import "./../../../styles/variables";
+@import "./../../../styles/fonts";
+@import "./../../../styles/mixins";
 
 #article-tall-rectangle {
   // prevents that viewport observer render all elements
   min-height: 150px;
   // normal styles
+  max-width: 190px;
   width: 28%;
   @include align_center_width();
   margin-bottom: 20px;
@@ -13,6 +14,7 @@
   flex-direction: column;
   background-color: $colorWhite;
   border-radius: 10px;
+  overflow: hidden;
   -webkit-box-shadow: 0px 2px 13px -10px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 2px 13px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 2px 13px -10px rgba(0, 0, 0, 0.75);
@@ -29,7 +31,7 @@
   }
 
   .article-tall-rectangle__info {
-    margin-top: 10px;
+    // margin-top: 10px;
     display: flex;
     flex-direction: column;
 
