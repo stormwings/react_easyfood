@@ -9,5 +9,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Pending
 
-- landing page to desktop
+- landing page to desktop ([Model](https://www.uplabs.com/posts/bizztips-business-and-consulting-layout).)
 - responsive improves
