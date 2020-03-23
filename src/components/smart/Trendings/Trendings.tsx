@@ -23,10 +23,10 @@ const Trendings: FunctionComponent<Props & RouteComponentProps> = ({
   return (
     <section id="trendings">
       <TitlePanel
-        title={"Trending"}
+        title={"Trendings!"}
+        fontFamily={"times"}
         subtitle={"Near you there are +10 stores"}
         redirection={redirection}
-        fontBold={true}
         style={{ marginBottom: "7px", marginLeft: "14px", marginRight: "14px" }}
       />
       <div className="trendings__list">

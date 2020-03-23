@@ -15,7 +15,9 @@ const BannerSlider: FunctionComponent<Props & RouteComponentProps> = ({ banners,
 
   return (
     <section id="banner-slider">
-      <TitlePanel title={'Great Deals!'} fontBold={true} />
+      <TitlePanel title={'Grat Deals'} subtitle="Our last promotions" fontFamily={"times"}
+        style={{ marginBottom: "7px", marginLeft: "14px", marginRight: "14px" }}
+      />
       <div className="banner-slider__list">
         {banners && banners.map((banner: any, index: number) => <BannerLong banner={banner} action={redirect} key={index} />)}
       </div>
