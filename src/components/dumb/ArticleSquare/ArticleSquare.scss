@@ -10,15 +10,29 @@
   background-color: $colorWhite;
   border-radius: 10px;
   @include align_center_width();
-  -webkit-box-shadow: 0px 0px 10px -8px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 10px -8px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 10px -8px rgba(0, 0, 0, 0.75);
+  // -webkit-box-shadow: 0px 0px 10px -8px rgba(0, 0, 0, 0.75);
+  // -moz-box-shadow: 0px 0px 10px -8px rgba(0, 0, 0, 0.75);
+  // box-shadow: 0px 0px 10px -8px rgba(0, 0, 0, 0.75);
+
+  background: linear-gradient(-5deg, #dee1e2, #efefef59);
+  box-shadow: 6px 6px 16px #e2e2e2, -6px -6px 9px #ffffff;    
+  border-radius: 10px;
+  
+  &:active {
+    border: 0.3px solid #f1f1f159;
+    background: linear-gradient(5deg, #f1f1f159, #dee1e2);
+  }
 
   .article-square__image {
     max-width: 150px;
     width: 100%;
     margin: 8px auto;
     margin-bottom: 3px;
+    transition: transform .2s;
+
+    &:hover {
+      transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
   }
 
   .article-square__title {
