@@ -11,6 +11,8 @@ import Article from "../components/views/Article/Article";
 import Checkout from "../components/views/Checkout/Checkout";
 import Dashboard from "../components/views/Dashboard/Dashboard";
 import Category from "../components/views/Category/Category";
+import Store from "../components/views/Store/Store";
+import Order from "../components/views/Order/Order";
 
 import { NoMatch } from "../components/views/404";
 
@@ -24,16 +26,8 @@ const Router: FunctionComponent<BrowserRouterProps> = () => {
         <Route exact path="/trendings" component={Search} />
         <Route exact path="/checkout" component={Checkout} />
         <Route exact path="/category/:categoryName" component={Category} />
-
-        {/* <Switch>
-          <Route path="/promo/:id" component={Dashboard} />
-          <Route path="/order/new" component={Dashboard} />
-          <Route path="/order/info" component={Dashboard} />
-          <Route path="/user/:id/profile" render={props => <UserProfile userId={props.match.params.id} />} /> 
-          <Route path="/user/:id/details" render={props => <UserDetails userId={props.match.params.id} />} />
-          <Route path="/user/:id/orders" render={props => <UserDetails userId={props.match.params.id} />} /> 
-        </Switch> */}
-
+        <Route exact path="/store/:storeId" component={Store} />
+        <Route exact path="/store/order/info" component={Order} />
         <Route component={NoMatch} />
       </Switch>
     </BrowserRouter>

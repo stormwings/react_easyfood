@@ -11,7 +11,7 @@ interface Props {
 }
 
 const BannerSlider: FunctionComponent<Props & RouteComponentProps> = ({ banners, history }) => {
-  const redirect = (_id: string) => history.push(`/promo/${_id}`);
+  const redirect = (_id: string) => history.push(`/store/${_id}/`);
 
   return (
     <section id="banner-slider">

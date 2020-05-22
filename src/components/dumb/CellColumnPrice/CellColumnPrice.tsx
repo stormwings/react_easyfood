@@ -4,8 +4,8 @@ import Button from "../Button/Button";
 
 interface Props {
   article: any;
-  onAdd: any;
-  onRest: any;
+  onAdd?: any;
+  onRest?: any;
 }
 
 const CellColumnPrice: FunctionComponent<Props> = props => {
@@ -15,9 +15,15 @@ const CellColumnPrice: FunctionComponent<Props> = props => {
   return (
     <div id="cell-price">
       <div className="cell-price__counter">
-        <Button content={"+"} className={"button"} onClick={onAdd} />
+        {
+          onAdd &&
+          <Button content={"+"} className={"button"} onClick={onAdd} />
+        }
         <div>1</div>
-        <Button content={"-"} className={"button"} onClick={onRest} />
+        {
+          onRest &&
+          <Button content={"-"} className={"button"} onClick={onRest} />
+        }
       </div>
       <div className="cell-price__total">${price}</div>
     </div>

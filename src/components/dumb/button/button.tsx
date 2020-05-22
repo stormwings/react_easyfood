@@ -30,6 +30,11 @@ export interface Props {
 
 const Button: FunctionComponent<Props> = props => {
   const { content, urlImage, type, className, onClick } = props;
+
+  const onClickDefault = () => {
+    console.log("default button function!");
+  };
+
   const actionFunction = () => (onClick ? onClick() : onClickDefault());
   return (
     <div
@@ -46,10 +51,6 @@ const Button: FunctionComponent<Props> = props => {
       )}
     </div>
   );
-};
-
-const onClickDefault = () => {
-  console.log("default button function!");
 };
 
 export default Button;

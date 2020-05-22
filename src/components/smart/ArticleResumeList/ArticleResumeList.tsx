@@ -7,9 +7,9 @@ import CellColumnPrice from "../../dumb/CellColumnPrice/CellColumnPrice";
 
 interface Props {
   articles: any;
-  onDelete: any;
-  onAdd: any;
-  onRest: any;
+  onDelete?: any;
+  onAdd?: any;
+  onRest?: any;
 }
 
 const ArticleResumeList: FunctionComponent<Props> = props => {
