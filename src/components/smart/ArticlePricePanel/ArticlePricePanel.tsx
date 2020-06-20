@@ -3,7 +3,7 @@ import Button from "../../dumb/Button/Button";
 import "./ArticlePricePanel.scss";
 
 interface Props {
-  price: any;
+  price: string;
 }
 
 class ArticlePricePanel extends Component<Props> {

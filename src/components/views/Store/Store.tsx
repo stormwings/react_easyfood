@@ -7,7 +7,6 @@ import * as actions from './../../../redux/actions/foodActions';
 import Header from '../../smart/Header/Header';
 import InputSearch from '../../smart/InputSearch/InputSearch';
 import ArticleList from '../../smart/ArticleList/ArticleList';
-import TitlePanel from '../../smart/TitlePanel/TitlePanel';
 import Categories from '../../smart/Categories/Categories';
 
 interface Props {

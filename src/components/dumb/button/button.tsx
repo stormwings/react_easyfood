@@ -25,7 +25,7 @@ export interface Props {
   /**
    * function to execute on click
    */
-  onClick?: any;
+  onClick?: Function;
 }
 
 const Button: FunctionComponent<Props> = props => {
